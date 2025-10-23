@@ -3,396 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimización B2B | Calcule su ROI y Detecte Fugas de Ingresos</title>
-    
-    <!-- Tailwind CSS CDN -->
+    <title>Llestia - Optimización y Automatización B2B</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
+    <!-- Google Font "Inter" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- TypeIt.js para animación de máquina de escribir -->
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     
     <style>
         /* Aplicar la fuente Inter como predeterminada */
         body {
             font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        /* Estilos personalizados para los sliders */
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0; /* bg-gray-300 */
-            border-radius: 9999px;
-            outline: none;
-            opacity: 0.7;
-            transition: opacity .2s;
-        }
-        input[type=range]:hover {
-            opacity: 1;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #2563eb; /* bg-blue-600 */
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        input[type=range]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: #2563eb; /* bg-blue-600 */
-            border-radius: 50%;
-            cursor: pointer;
+        /* Estilo personalizado para el cursor de TypeIt */
+        .ti-cursor {
+            color: #3b82f6; /* Azul de Tailwind (blue-600) */
+            font-weight: 800;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="bg-white text-gray-800">
 
-    <!-- Header Minimalista -->
-    <header class="bg-white shadow-sm">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40"> <!-- z-40 para estar debajo del modal -->
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Branding (Logo Azul) -->
             <div class="text-2xl font-bold text-blue-600">
-                LogoCorp
+                Llestia
             </div>
-            <a href="#contacto" class="text-gray-600 hover:text-blue-600 font-medium">Contacto</a>
+            <!-- Links (Header de Conversión) -->
+            <div class="flex space-x-4">
+                <!-- Botón Calculadora (Oculto por defecto) -->
+                <a href="#roi-calculator" id="nav-roi-link" class="text-gray-600 hover:text-blue-600 transition-all duration-300 opacity-0 invisible transform -translate-y-2 py-2 px-3">
+                    Calculadora ROI
+                </a>
+                <!-- Botón Escáner (Oculto por defecto) - CAMBIADO A <button> -->
+                <button id="nav-scan-button" class="open-modal-btn bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 opacity-0 invisible transform -translate-y-2">
+                    Iniciar Escáner
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Sección Hero -->
-    <main class="container mx-auto px-6 py-16 md:py-24 text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-            Deje de perder dinero.
-            <span class="block text-blue-600">Identifique sus fugas de ingresos B2B.</span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Nuestra plataforma cualifica sus leads y le muestra el ROI exacto de su estrategia de optimización. Convíenzase usted mismo.
-        </p>
-        
-        <!-- CTAs Principales -->
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button id="openModalBtn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
-                Iniciar Detector de Fugas
-            </button>
-            <a href="#roi-calculator" class="bg-white text-blue-600 border border-blue-600 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-                Calcular mi ROI
-            </a>
+    <!-- Hero Section con Gradiente -->
+    <main class="bg-gradient-to-br from-white to-gray-50">
+        <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+            
+            <!-- Título Principal -->
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Escala tu negocio, no tus costes.
+            </h1>
+            
+            <!-- Subtítulo Animado -->
+            <div class="text-3xl md:text-5xl font-extrabold text-blue-600 mb-12 h-24 md:h-16">
+                <span id="typeit-hero"></span>
+            </div>
+
+            <!-- Párrafo de Descripción -->
+            <p class="text-md md:text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+                Llestia no es una consultoría. Es un sistema de diagnóstico y optimización que te da el plan exacto para escalar tus ventas B2B.
+            </p>
+            
+            <!-- CTAs Principales -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- CAMBIADO A <button> -->
+                <button class="open-modal-btn inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5">
+                    Iniciar Escáner de Fugas
+                </button>
+                <a href="#roi-calculator" id="cta-roi" class="inline-block bg-white text-gray-800 font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-gray-100 transition duration-300 border border-gray-300 transform hover:-translate-y-0.5">
+                    Calcular mi ROI
+                </a>
+            </div>
         </div>
     </main>
 
-    <!-- Prueba Social (Logos) -->
-    <section class="bg-white py-12">
+    <!-- Sección "El Sistema Llestia" -->
+    <section class="bg-white py-20 md:py-24">
         <div class="container mx-auto px-6">
-            <p class="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">
-                Con la confianza de empresas líderes en el sector
-            </p>
-            <!-- Logos de ejemplo. Reemplazar con SVGs o imágenes reales -->
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-                <div class="text-2xl font-bold text-gray-500">TechCo</div>
-                <div class="text-2xl font-bold text-gray-500">Innovate</div>
-                <div class="text-2xl font-bold text-gray-500">Global Solutions</div>
-                <div class="text-2xl font-bold text-gray-500">B2B Corp</div>
-                <div class="text-2xl font-bold text-gray-500">Enterprise</div>
+            <!-- Título de la Sección -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">El Sistema Llestia</h2>
+                <!-- Texto Actualizado -->
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">No más conjeturas. Solo un proceso de 3 fases para la optimización total.</p>
+            </div>
+
+            <!-- Pasos (Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Paso 1: Diagnóstico -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Icono -->
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">1. Diagnóstico</h3>
+                    <p class="text-gray-600">Nuestro "Escáner de Fugas" analiza tu embudo de ventas, marketing y operaciones para encontrar puntos ciegos e ineficiencias.</p>
+                </div>
+
+                <!-- Paso 2: Simulación -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Icono -->
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">2. Simulación</h3>
+                    <p class="text-gray-600">Calcula tu ROI potencial al instante. Te mostramos el impacto exacto de la automatización en tus ingresos y costes operativos.</p>
+                </div>
+
+                <!-- Paso 3: Implementación -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Icono -->
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
+                         <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 2.25c-2.69 0-5.22.87-7.22 2.37m13.16 9.74a6 6 0 01-5.84-7.38v4.8m5.84 2.58a14.98 14.98 0 01-6.16 12.12A14.98 14.98 0 019.63 21.75c2.69 0 5.22-.87 7.22-2.37m-13.16-9.74a6 6 0 015.84 7.38v-4.8" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">3. Implementación</h3>
+                    <p class="text-gray-600">Recibes un plan de acción detallado y priorizado, listo para ejecutar. Optimiza tu negocio con precisión quirúrgica.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Calculador de ROI -->
-    <section id="roi-calculator" class="py-20 md:py-28 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    
-                    <!-- Formulario del Calculador -->
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Calcule su ROI Potencial</h2>
-                        <p class="text-gray-600 mb-8">
-                            Ajuste los valores para ver una estimación del ingreso adicional que podría generar al optimizar su tasa de conversión.
-                        </p>
-                        
-                        <div class="space-y-6">
-                            <!-- Input 1: Tráfico Mensual -->
-                            <div>
-                                <label for="traffic" class="flex justify-between font-medium text-gray-700 mb-2">
-                                    <span>Tráfico Web Mensual</span>
-                                    <span id="trafficValue" class="font-bold text-blue-600">10,000</span>
-                                </label>
-                                <input type="range" id="traffic" min="1000" max="100000" step="1000" value="10000" class="w-full">
-                            </div>
-                            
-                            <!-- Input 2: Tasa de Conversión -->
-                            <div>
-                                <label for="conversion" class="flex justify-between font-medium text-gray-700 mb-2">
-                                    <span>Tasa de Conversión Actual</span>
-                                    <span id="conversionValue" class="font-bold text-blue-600">2.0%</span>
-                                </label>
-                                <input type="range" id="conversion" min="0.5" max="10" step="0.1" value="2.0" class="w-full">
-                            </div>
 
-                            <!-- Input 3: Valor de Cliente -->
-                            <div>
-                                <label for="acv" class="flex justify-between font-medium text-gray-700 mb-2">
-                                    <span>Valor Promedio de Cliente (ACV)</span>
-                                    <span id="acvValue" class="font-bold text-blue-600">$5,000</span>
-                                </label>
-                                <input type="range" id="acv" min="500" max="50000" step="500" value="5000" class="w-full">
-                            </div>
+    <!-- Calculador de ROI Interactivo -->
+    <section id="roi-calculator" class="bg-gray-100 py-20 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto">
+                <!-- Título -->
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-4">Calcula tu ROI de Automatización</h2>
+                <p class="text-lg text-gray-600 text-center mb-10">Mueve los sliders y descubre tu potencial de ingresos oculto.</p>
+
+                <!-- Grid: Sliders a la izquierda, Resultado a la derecha -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Columna de Sliders -->
+                    <div class="space-y-8">
+                        <!-- Slider 1: Tráfico Web -->
+                        <div>
+                            <label for="traffic" class="flex justify-between text-lg font-semibold text-gray-800 mb-2">
+                                <span>Visitantes Web / Mes</span>
+                                <span id="traffic-value" class="text-blue-600 font-bold">10,000</span>
+                            </label>
+                            <input type="range" id="traffic" min="1000" max="100000" value="10000" step="1000" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+                        </div>
+
+                        <!-- Slider 2: Tasa de Conversión -->
+                        <div>
+                            <label for="conversion" class="flex justify-between text-lg font-semibold text-gray-800 mb-2">
+                                <span>Tasa de Conversión (Lead)</span>
+                                <span id="conversion-value" class="text-blue-600 font-bold">2.0%</span>
+                            </label>
+                            <input type="range" id="conversion" min="0.5" max="10" value="2.0" step="0.1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+                        </div>
+
+                        <!-- Slider 3: Valor de Cliente (LTV) -->
+                        <div>
+                            <label for="ltv" class="flex justify-between text-lg font-semibold text-gray-800 mb-2">
+                                <span>Valor Medio por Cliente (€)</span>
+                                <span id="ltv-value" class="text-blue-600 font-bold">€5,000</span>
+                            </label>
+                            <input type="range" id="ltv" min="500" max="50000" value="5000" step="500" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
                         </div>
                     </div>
-                    
-                    <!-- Resultados del Calculador -->
-                    <div class="bg-blue-600 text-white p-8 rounded-lg flex flex-col justify-center items-center text-center">
-                        <p class="text-lg font-medium text-blue-200 mb-2">Ingresos Adicionales Potenciales (Anual)</p>
-                        <div id="roiResult" class="text-5xl md:text-6xl font-extrabold mb-6">
-                            $90,000
-                        </div>
+
+                    <!-- Columna de Resultados -->
+                    <div class="bg-blue-600 text-white p-8 rounded-xl shadow-2xl text-center">
+                        <p class="text-xl font-medium text-blue-100 mb-2">Ingresos Mensuales Actuales</p>
+                        <div id="current-revenue" class="text-4xl font-extrabold mb-6">€10,000</div>
                         
-                        <p class="text-lg font-medium text-blue-200 mb-2">Leads Cualificados Adicionales (Anual)</p>
-                        <div id="leadsResult" class="text-4xl font-extrabold">
-                            18
-                        </div>
-                        <p class="text-blue-100 mt-4 text-sm">*Estimación basada en una mejora conservadora de 1.5% en la tasa de conversión.</p>
+                        <div class="border-t border-blue-400 my-6"></div>
+
+                        <p class="text-xl font-medium text-blue-100 mb-2">Con un 20% de mejora por fugas:</p>
+                        <div id="optimized-revenue" class="text-5xl font-extrabold text-white">€12,000</div>
+                        <div id="revenue-gain" class="text-xl font-semibold text-green-300 mt-3">+€2,000 / mes</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonio -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-3xl text-center">
-            <blockquote class="text-2xl md:text-3xl font-medium text-gray-800 leading-relaxed">
-                "No sabíamos cuántas oportunidades estábamos perdiendo. Su 'Detector de Fugas' identificó los 3 puntos débiles de nuestro embudo en 10 minutos. Esencial para cualquier equipo B2B."
-            </blockquote>
-            <p class="mt-6 text-lg font-semibold text-gray-900">Directora de Marketing</p>
-            <p class="text-gray-500">Global Solutions Inc.</p>
-        </div>
-    </section>
+<!--FOOTER -->
 
-    <!-- Footer -->
-    <footer id="contacto" class="bg-gray-800 text-gray-400 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-2xl font-bold text-white mb-4">LogoCorp</p>
-            <p class="mb-6">Optimizando el crecimiento B2B.</p>
-            <div class="flex justify-center gap-6 mb-6">
-                <a href="#" class="hover:text-white">Política de Privacidad</a>
-                <a href="#" class="hover:text-white">Términos de Uso</a>
-            </div>
-            <p>&copy; 2025 LogoCorp. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+<footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-6 text-center">
+        
+        <p class="text-2xl font-bold text-white mb-2">Llestia</p>
+        
+        <p class="text-lg mb-4"> 
+            <button id="openContactModalBtn" class="hover:text-white hover:underline transition-all">Contacto</button>
+        </p>
+        
+        <p class="text-sm mb-4">
+            <a href="#" class="hover:text-white inline-block">Aviso Legal</a>
+            <span class="mx-2">&bull;</span> 
+            <a href="#" class="hover:text-white inline-block">Política de Privacidad</a>
+        </p>
+        
+        <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
+    
+    </div>
+</footer>
 
-
-    <!-- Modal: Detector de Fugas (Cuestionario) -->
-    <div id="leakDetectorModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden backdrop-blur-sm">
-        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all">
-            <!-- Header del Modal -->
-            <div class="flex justify-between items-center p-5 border-b">
-                <h3 class="text-xl font-bold text-gray-900">Detector de Fugas B2B</h3>
+    <!-- HTML del Modal-Embed (Tally - Escáner) -->
+    <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm"> <!-- z-index 60, > header's z-40 -->
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico</h3>
                 <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
             </div>
             
-            <!-- Contenido del Modal (Formulario) -->
-            <form id="quizForm" class="p-6">
-                <!-- Paso 1: Info Empresa -->
-                <fieldset class="quiz-step" data-step="0">
-                    <legend class="text-lg font-semibold text-gray-800 mb-4">Paso 1: Sobre su Empresa</legend>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="companySize" class="block text-sm font-medium text-gray-700">Tamaño de la Empresa</label>
-                            <select id="companySize" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                                <option>1-10 empleados</option>
-                                <option>11-50 empleados</option>
-                                <option>51-200 empleados</option>
-                                <option>201+ empleados</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="industry" class="block text-sm font-medium text-gray-700">Industria</label>
-                            <input type="text" id="industry" placeholder="Ej: SaaS, Consultoría, FinTech" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                    </div>
-                </fieldset>
-
-                <!-- Paso 2: Proceso de Ventas -->
-                <fieldset class="quiz-step hidden" data-step="1">
-                    <legend class="text-lg font-semibold text-gray-800 mb-4">Paso 2: Su Proceso</legend>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">¿Cuál es su mayor desafío actual?</label>
-                            <div class="mt-2 space-y-2">
-                                <label class="flex items-center"><input type="radio" name="challenge" value="traffic" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"> <span class="ml-2 text-gray-700">Generar más tráfico</span></label>
-                                <label class="flex items-center"><input type="radio" name="challenge" value="leads" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"> <span class="ml-2 text-gray-700">Conseguir más leads</span></label>
-                                <label class="flex items-center"><input type="radio" name="challenge" value="quality" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"> <span class="ml-2 text-gray-700">Mejorar la calidad de leads</span></label>
-                                <label class="flex items-center"><input type="radio" name="challenge" value="close" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"> <span class="ml-2 text-gray-700">Cerrar más ventas</span></label>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <!-- Paso 3: Contacto (Captura de Lead) -->
-                <fieldset class="quiz-step hidden" data-step="2">
-                    <legend class="text-lg font-semibold text-gray-800 mb-4">Paso 3: Vea sus Resultados</legend>
-                    <p class="text-sm text-gray-600 mb-4">Complete sus datos para recibir su diagnóstico personalizado gratuito.</p>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
-                            <input type="text" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email Corporativo</label>
-                            <input type="email" id="email" required placeholder="nombre@empresa.com" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                    </div>
-                </fieldset>
-
-                <!-- Mensaje de Éxito -->
-                <div id="successMessage" class="hidden text-center p-6">
-                    <h3 class="text-2xl font-bold text-green-600 mb-4">¡Gracias!</h3>
-                    <p class="text-gray-700">Hemos recibido sus datos. Un especialista le enviará su diagnóstico personalizado en breve.</p>
-                </div>
-
-                <!-- Botones de Navegación del Modal -->
-                <div id="modalNavigation" class="flex justify-between items-center pt-6 mt-6 border-t">
-                    <button type="button" id="prevBtn" class="bg-gray-200 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-300 transition duration-300">
-                        Anterior
-                    </button>
-                    <button type="button" id="nextBtn" class="bg-blue-600 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-700 transition duration-300">
-                        Siguiente
-                    </button>
-                    <button type="submit" id="submitBtn" class="bg-green-600 text-white font-medium py-2 px-5 rounded-lg hover:bg-green-700 transition duration-300 hidden">
-                        Obtener mi Diagnóstico
-                    </button>
-                </div>
-            </form>
+            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura para que quepa el header del modal -->
+                <iframe 
+                    src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
+                    class="w-full h-full border-0"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Escáner de Fugas B2B">
+                </iframe>
+            </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // --- LÓGICA DEL CALCULADOR DE ROI ---
-            const trafficInput = document.getElementById('traffic');
-            const trafficValue = document.getElementById('trafficValue');
-            const conversionInput = document.getElementById('conversion');
-            const conversionValue = document.getElementById('conversionValue');
-            const acvInput = document.getElementById('acv');
-            const acvValue = document.getElementById('acvValue');
+    <!-- AÑADIDO: HTML del Modal-Embed (Tally - Contacto) -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-lg font-bold text-gray-900">Contacto</h3>
+                <button id="closeContactModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+            </div>
             
-            const roiResult = document.getElementById('roiResult');
-            const leadsResult = document.getElementById('leadsResult');
+            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura -->
+                <iframe 
+                    src="https://tally.so/r/3NKrab?transparentBackground=1&hideTitle=1"
+                    class="w-full h-full border-0"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Formulario de Contacto">
+                </iframe>
+            </div>
+        </div>
+    </div>
 
-            function calculateROI() {
-                // Obtener valores
-                const traffic = parseFloat(trafficInput.value) || 0;
-                const conversion = parseFloat(conversionInput.value) || 0;
-                const acv = parseFloat(acvInput.value) || 0;
+
+    <!-- Scripts de JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- Lógica del Calculador de ROI ---
+            const trafficSlider = document.getElementById('traffic');
+            const conversionSlider = document.getElementById('conversion');
+            const ltvSlider = document.getElementById('ltv');
+
+            const trafficValue = document.getElementById('traffic-value');
+            const conversionValue = document.getElementById('conversion-value');
+            const ltvValue = document.getElementById('ltv-value');
+
+            const currentRevenueEl = document.getElementById('current-revenue');
+            const optimizedRevenueEl = document.getElementById('optimized-revenue');
+            const revenueGainEl = document.getElementById('revenue-gain');
+
+            function formatCurrency(num) {
+                return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(num);
+            }
+
+            function updateROI() {
+                // Añadir comprobación por si los sliders no existen
+                if (!trafficSlider || !conversionSlider || !ltvSlider) return;
+                
+                const traffic = parseFloat(trafficSlider.value);
+                const conversion = parseFloat(conversionSlider.value) / 100;
+                const ltv = parseFloat(ltvSlider.value);
 
                 // Actualizar etiquetas de los sliders
-                trafficValue.textContent = traffic.toLocaleString('es-ES');
-                conversionValue.textContent = conversion.toFixed(1) + '%';
-                acvValue.textContent = '$' + acv.toLocaleString('es-ES');
+                trafficValue.textContent = new Intl.NumberFormat('es-ES').format(traffic);
+                conversionValue.textContent = `${conversionSlider.value}%`;
+                ltvValue.textContent = formatCurrency(ltv);
 
-                // Lógica de cálculo (Asumimos una mejora de 1.5% en conversión)
-                const conversionMejora = 1.5; 
-                
-                const leadsActuales = (traffic * 12) * (conversion / 100);
-                const ingresosActuales = leadsActuales * acv;
+                // Calcular resultados
+                const leads = traffic * conversion;
+                const currentRevenue = leads * ltv;
+                const optimizationGain = 0.20; // 20% de mejora
+                const optimizedRevenue = currentRevenue * (1 + optimizationGain);
+                const revenueGain = optimizedRevenue - currentRevenue;
 
-                const leadsNuevos = (traffic * 12) * ((conversion + conversionMejora) / 100);
-                const ingresosNuevos = leadsNuevos * acv;
-                
-                const gananciaPotencial = ingresosNuevos - ingresosActuales;
-                const leadsAdicionales = leadsNuevos - leadsActuales;
-
-                // Mostrar resultados
-                roiResult.textContent = '$' + gananciaPotencial.toLocaleString('es-ES', { maximumFractionDigits: 0 });
-                leadsResult.textContent = '+' + leadsAdicionales.toLocaleString('es-ES', { maximumFractionDigits: 0 });
+                // Actualizar panel de resultados
+                currentRevenueEl.textContent = formatCurrency(currentRevenue);
+                optimizedRevenueEl.textContent = formatCurrency(optimizedRevenue);
+                revenueGainEl.textContent = `+${formatCurrency(revenueGain)} / mes`;
             }
 
             // Event Listeners para los sliders
-            [trafficInput, conversionInput, acvInput].forEach(input => {
-                input.addEventListener('input', calculateROI);
-            });
-
-            // Cálculo inicial al cargar
-            calculateROI();
-
-            // --- LÓGICA DEL MODAL (DETECTOR DE FUGAS) ---
-            const modal = document.getElementById('leakDetectorModal');
-            const openModalBtn = document.getElementById('openModalBtn');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            
-            const quizForm = document.getElementById('quizForm');
-            const steps = Array.from(document.querySelectorAll('.quiz-step'));
-            const nextBtn = document.getElementById('nextBtn');
-            const prevBtn = document.getElementById('prevBtn');
-            const submitBtn = document.getElementById('submitBtn');
-            const modalNavigation = document.getElementById('modalNavigation');
-            const successMessage = document.getElementById('successMessage');
-
-            let currentStep = 0;
-
-            function showStep(stepIndex) {
-                steps.forEach((step, index) => {
-                    step.classList.toggle('hidden', index !== stepIndex);
+            if (trafficSlider && conversionSlider && ltvSlider) {
+                [trafficSlider, conversionSlider, ltvSlider].forEach(slider => {
+                    slider.addEventListener('input', updateROI);
                 });
-
-                // Actualizar botones
-                prevBtn.classList.toggle('hidden', stepIndex === 0);
-                prevBtn.classList.toggle('disabled', stepIndex === 0);
-                nextBtn.classList.toggle('hidden', stepIndex === steps.length - 1);
-                submitBtn.classList.toggle('hidden', stepIndex !== steps.length - 1);
+                // Inicializar calculadora
+                updateROI();
             }
 
-            // Abrir y cerrar modal
-            openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-            closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
             
-            // Navegación del formulario
-            nextBtn.addEventListener('click', () => {
-                if (currentStep < steps.length - 1) {
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            });
+            // --- Lógica de Animación TypeIt ---
+            if (document.getElementById('typeit-hero')) {
+                new TypeIt('#typeit-hero', {
+                    strings: [
+                        'Identifica tus fugas de ingresos.',
+                        'Automatiza tus procesos manuales.',
+                        'Deja de perder leads cualificados.',
+                        'Consigue más resultados con el mismo equipo.'
+                    ],
+                    speed: 35,
+                    deleteSpeed: 20,
+                    breakLines: false,
+                    waitUntilVisible: true,
+                    loop: true,
+                    afterString: (step, instance) => {
+                        instance.pause(2500); // Pausa de 2.5s después de escribir
+                    }
+                }).go();
+            }
 
-            prevBtn.addEventListener('click', () => {
-                if (currentStep > 0) {
-                    currentStep--;
-                    showStep(currentStep);
-                }
-            });
 
-            // Envío del formulario
-            quizForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Aquí iría la lógica de envío de datos (e.g., fetch, n8n webhook)
+            // --- Lógica de Smooth Scroll (Solución JS) ---
+            
+            // Función para manejar el scroll suave
+            function smoothScroll(targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Prevenir el salto brusco del ancla
+                    event.preventDefault(); 
+                    // Hacer scroll suave
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            // Botón del Hero
+            const ctaRoiButton = document.getElementById('cta-roi');
+            if (ctaRoiButton) {
+                ctaRoiButton.addEventListener('click', function(event) {
+                    smoothScroll('roi-calculator');
+                });
+            }
+
+            // Botón de la Navegación (con el ID actualizado)
+            const navCtaRoiButton = document.getElementById('nav-roi-link');
+            if (navCtaRoiButton) {
+                navCtaRoiButton.addEventListener('click', function(event) {
+                    smoothScroll('roi-calculator');
+                });
+            }
+
+            
+            // --- Lógica del Header de Conversión (Scroll) ---
+            const navRoiLink = document.getElementById('nav-roi-link');
+            const navScanButton = document.getElementById('nav-scan-button');
+
+            if (navRoiLink && navScanButton) {
+                window.addEventListener('scroll', function() {
+                    // Aparece después de 100px de scroll
+                    if (window.scrollY > 100) { 
+                        navRoiLink.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                        navRoiLink.classList.add('opacity-100', 'visible', 'translate-y-0');
+
+                        navScanButton.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                        navScanButton.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    } else {
+                        navRoiLink.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                        navRoiLink.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                        
+                        navScanButton.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                        navScanButton.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    }
+                });
+            }
+
+            // --- LÓGICA DEL MODAL (TALLY EMBED - ESCÁNER) ---
+            const modal = document.getElementById('tallyModal');
+            const openButtons = document.querySelectorAll('.open-modal-btn'); // Selecciona por clase
+            const closeBtn = document.getElementById('closeModalBtn');
+
+            if (modal && openButtons.length > 0 && closeBtn) {
                 
-                // Ocultar formulario y mostrar mensaje de éxito
-                steps.forEach(step => step.classList.add('hidden'));
-                modalNavigation.classList.add('hidden');
-                successMessage.classList.remove('hidden');
+                // Abrir modal con cualquiera de los botones
+                openButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        modal.classList.remove('hidden');
+                    });
+                });
 
-                // Cerrar modal después de 3 segundos
-                setTimeout(() => {
+                // Cerrar modal con el botón X
+                closeBtn.addEventListener('click', () => {
                     modal.classList.add('hidden');
-                    // Resetear formulario para la próxima vez
-                    successMessage.classList.add('hidden');
-                    modalNavigation.classList.remove('hidden');
-                    currentStep = 0;
-                    showStep(currentStep);
-                    quizForm.reset();
-                }, 3000);
-            });
+                });
+                
+                // Opcional: Cerrar al hacer clic fuera del modal
+                modal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        modal.classList.add('hidden');
+                    }
+                });
+            }
 
-            // Mostrar el primer paso al inicio
-            showStep(currentStep);
+            // AÑADIDO: --- LÓGICA DEL MODAL (TALLY EMBED - CONTACTO) ---
+            const contactModal = document.getElementById('contactModal');
+            const openContactBtn = document.getElementById('openContactModalBtn');
+            const closeContactBtn = document.getElementById('closeContactModalBtn');
+
+            if (contactModal && openContactBtn && closeContactBtn) {
+                
+                // Abrir modal de contacto
+                openContactBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevenir cualquier comportamiento por defecto
+                    contactModal.classList.remove('hidden');
+                });
+
+                // Cerrar modal de contacto con el botón X
+                closeContactBtn.addEventListener('click', () => {
+                    contactModal.classList.add('hidden');
+                });
+                
+                // Opcional: Cerrar al hacer clic fuera del modal
+                contactModal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        contactModal.classList.add('hidden');
+                    }
+                });
+            }
+
         });
     </script>
 
 </body>
 </html>
+
