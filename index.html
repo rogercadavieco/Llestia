@@ -1,101 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Llestia — Optimiza tu negocio con automatización inteligente</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llestia - Optimización y Automatización B2B</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font "Inter" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- TypeIt.js para animación de máquina de escribir -->
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    
+    <style>
+        /* Aplicar la fuente Inter como predeterminada */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Estilo personalizado para el cursor de TypeIt */
+        .ti-cursor {
+            color: #3b82f6; /* Azul de Tailwind (blue-600) */
+            font-weight: 800;
+        }
+    </style>
 </head>
+<body class="bg-white text-gray-800">
 
-<body class="bg-gray-50 text-gray-900">
-
-  <!-- HEADER -->
-  <header class="bg-white shadow-sm">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="/" class="text-2xl font-bold text-blue-600">Llestia</a>
-      <a href="#contacto" class="text-gray-600 hover:text-blue-600 font-medium">Contacto</a>
+        <div class="text-2xl font-bold text-blue-600"> Llestia
+        </div>
+        <div id="header-cta-wrapper" class="flex space-x-4 hidden opacity-0 transition-opacity duration-300">
+            <a href="#roi-calculator" id="nav-roi-link" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2 px-3">
+                Calculadora ROI
+            </a>
+            <button id="nav-scan-button" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                Iniciar Escáner
+            </button>
+        </div>
     </nav>
-  </header>
+</header>
 
-  <!-- HERO -->
-  <section class="text-center py-20 bg-gradient-to-b from-white to-gray-50">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-        Automatiza. Ahorra tiempo. Escala tu negocio.
-      </h1>
-      <p class="text-lg text-gray-600 mb-10">
-        Llestia detecta fugas de tiempo y automatiza los procesos que frenan tu crecimiento.
-      </p>
+    <!-- Hero Section con Gradiente -->
+    <main class="bg-gradient-to-br from-white to-gray-50">
+        <div class="container mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-20 text-center">
+            
+            <!-- Título Principal -->
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Escala tu negocio, no tus costes.
+            </h1>
+            
+            <!-- Subtítulo Animado -->
+            <div class="text-3xl md:text-5xl font-extrabold text-blue-600 mb-12 h-24 md:h-16">
+                <span id="typeit-hero"></span>
+            </div>
 
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="scanner.html"
-          class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-          Iniciar escáner de fugas
-        </a>
-        <a href="roi.html"
-          class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 transition">
-          Calcular ROI
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SISTEMA LLESTIA -->
-  <section class="py-10 bg-gray-50"> <!-- antes py-16 -->
-    <div class="max-w-6xl mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-8 mt-0">Sistema Llestia</h2>
-      <p class="text-gray-600 mb-10">
-        Automatizamos la detección de cuellos de botella en tus procesos y proponemos soluciones de impacto inmediato.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white shadow-md rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-2 text-blue-600">1. Escanear</h3>
-          <p class="text-gray-600">Analizamos tus procesos actuales en minutos con nuestro escáner inteligente.</p>
+            <!-- Párrafo de Descripción -->
+            <p class="text-md md:text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+                Llestia no es una consultoría. Es un sistema de diagnóstico y optimización que te da el plan exacto para escalar tus ventas B2B.
+            </p>
+            
+            <!-- CTAs Principales -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- CAMBIADO A <button> -->
+                <button class="open-modal-btn inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5">
+                    Iniciar Escáner de Fugas
+                </button>
+                <a href="#roi-calculator" id="cta-roi" class="inline-block bg-white text-gray-800 font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-gray-100 transition duration-300 border border-gray-300 transform hover:-translate-y-0.5">
+                    Calcular mi ROI
+                </a>
+            </div>
         </div>
-        <div class="bg-white shadow-md rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-2 text-blue-600">2. Diagnosticar</h3>
-          <p class="text-gray-600">Identificamos fugas de tiempo, tareas redundantes y puntos críticos.</p>
-        </div>
-        <div class="bg-white shadow-md rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-2 text-blue-600">3. Optimizar</h3>
-          <p class="text-gray-600">Te proponemos automatizaciones listas para aplicar y recuperar rentabilidad.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-6">¿Listo para detectar tus fugas?</h2>
-      <p class="text-gray-600 mb-8">
-        Agenda una llamada gratuita y descubre cómo Llestia puede ayudarte a recuperar horas de trabajo cada semana.
-      </p>
-      <a href="https://tally.so/r/mD7y6l"
-        class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition">
-        Agendar Diagnóstico
-      </a>
-    </div>
-  </section>
+    <!-- Sección "El Sistema Llestia" -->
+    <section class="bg-white pt-4 pb-16 md:pt-12 md:pb-20">
+        <div class="container mx-auto px-6">
+            <!-- Título de la Sección -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">El Sistema Llestia</h2>
+                <!-- Texto Actualizado -->
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Descubre dónde se escapa tu beneficio y cómo recuperarlo en 3 pasos.</p>
+            </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
-    <p>&copy; 2025 Llestia. Todos los derechos reservados.</p>
-    <p class="mt-2">
-      <a href="aviso_legal.html" class="hover:text-white">Aviso Legal</a>
-    </p>
-  </footer>
+            <!-- Pasos (Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Paso 1: Diagnóstico -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Icono -->
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">1. Descubre tus Fugas</h3>
+                    <p class="text-gray-600">Usa nuestro <strong>Escáner gratuito</strong> para identificar exactamente dónde pierdes <strong>tiempo y dinero</strong> en tus procesos actuales.</p>
+                </div>
+
+                <!-- Paso 2: Simulación -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Icono -->
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">2. Cuantifica el Potencial</h3>
+                    <p class="text-gray-600">Visualiza el <strong>impacto económico real</strong> de optimizar. Nuestra calculadora te muestra el ahorro y los <strong>ingresos potenciales</strong>.</p>
+                </div>
+
+                <!-- Paso 3: Implementación -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <!-- Icono -->
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-md">
+                         <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 2.25c-2.69 0-5.22.87-7.22 2.37m13.16 9.74a6 6 0 01-5.84-7.38v4.8m5.84 2.58a14.98 14.98 0 01-6.16 12.12A14.98 14.98 0 019.63 21.75c2.69 0 5.22-.87 7.22-2.37m-13.16-9.74a6 6 0 015.84 7.38v-4.8" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">3. Obtén tu Hoja de Ruta</h3>
+                    <p class="text-gray-600">Te entregamos un <strong>plan paso a paso, priorizado y listo para ejecutar</strong>, enfocado en las acciones que te darán resultados más rápidos.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Calculador de ROI Interactivo -->
+   <section id="roi-calculator" class="bg-gray-100 py-20 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Calcula tu ROI de Automatización</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Cada día, tu negocio dedica tiempo a tareas necesarias… pero repetitivas.<br>
+                            Ese tiempo tiene un coste oculto: horas, energía y, sobre todo, dinero.<br>
+                            Calcula en un minuto cuánto podrías recuperar automatizando.<br>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                  <div class="space-y-8">
+
+    <div>
+        <div class="mb-2">
+            <label for="people" class="text-lg font-semibold text-gray-800">Nº Personas (Equipo Soporte/Op.)</label>
+            <span id="people-value" class="text-blue-600 font-bold float-right">5</span>
+        </div>
+        <input type="range" id="people" min="1" max="50" value="5" step="1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+        <p class="text-xs text-gray-500 mt-1">Gente en admin, gestión, coordinación, etc.</p>
+    </div>
+
+    <div>
+        <div class="mb-2">
+            <label for="friction" class="text-lg font-semibold text-gray-800">Horas Repetitivas Semanales (Promedio)</label>
+            <span id="friction-value" class="text-blue-600 font-bold float-right">8 h</span>
+        </div>
+        <input type="range" id="friction" min="1" max="20" value="8" step="1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+        <p class="text-xs text-gray-500 mt-1">Tiempo medio copiando datos, generando informes, emails estándar, etc.</p>
+    </div>
+
+    <div>
+        <div class="mb-2">
+            <label for="cost" class="text-lg font-semibold text-gray-800">Coste Medio / Hora (€) (Estimado)</label>
+            <span id="cost-value" class="text-blue-600 font-bold float-right">€30</span>
+        </div>
+        <input type="range" id="cost" min="15" max="100" value="30" step="1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+        <p class="text-xs text-gray-500 mt-1">Coste total aproximado por hora de empleado.</p>
+    </div>
+
+</div>
+
+                    <div class="bg-blue-600 text-white p-8 rounded-xl shadow-2xl text-center">
+                        <p class="text-xl font-medium text-blue-100 mb-2">Potencial de Ahorro Anual Estimado</p>
+                        <div id="annual-savings" class="text-5xl font-extrabold text-white mb-6">€62,400</div>
+                        
+                        <div class="border-t border-blue-400 my-6"></div>
+
+                        <p class="text-xl font-medium text-blue-100 mb-2">Horas Anuales Recuperables</p>
+                        <div id="annual-hours" class="text-4xl font-extrabold text-white">2,080 h</div>
+
+                         <p class="text-blue-100 mt-8 text-xs italic">
+                            *Esta es una estimación. Usa el <button id="disclaimer-scanner-link" class="underline hover:text-white">Escáner de Fugas</button> para un diagnóstico preciso de tus procesos.*
+                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--FOOTER -->
+<footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-6 text-center">
+
+        <p class="text-2xl font-bold text-white mb-2">Llestia</p>
+
+        <p class="text-lg mb-4">
+            <button id="openContactModalBtn" class="hover:text-white hover:underline transition-all">Contacto</button>
+        </p>
+
+        <div class="flex justify-center text-sm space-x-4 mb-4">
+            <a href="aviso_legal.html" class="hover:text-white">Aviso Legal</a>
+            <span>&bull;</span>
+            <a href="politica_privacidad.html" class="hover:text-white">Política de Privacidad</a>
+        </div>
+
+        <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
+
+        </div>
+</footer>
+    <!-- HTML del Modal-Embed (Tally - Escáner) -->
+    <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm"> <!-- z-index 60, > header's z-40 -->
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico</h3>
+                <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+            </div>
+            
+            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura para que quepa el header del modal -->
+                <iframe 
+                    src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
+                    class="w-full h-full border-0"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Escáner de Fugas B2B">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- AÑADIDO: HTML del Modal-Embed (Tally - Contacto) -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
+            <div class="flex justify-between items-center p-4 border-b">
+                <button id="closeContactModalBtn_Unique" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+            </div>
+            
+            <div class="w-full h-[calc(90vh-65px)]"> <iframe 
+                    src="https://tally.so/r/3NKrab?transparentBackground=1"
+                    class="w-full h-full border-0"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Formulario de Contacto">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts de JavaScript -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // --- LÓGICA DE TYPEIT ---
+        if (document.getElementById('typeit-hero')) {
+            new TypeIt('#typeit-hero', {
+                strings: [
+                    'Identifica tus fugas de ingresos.',
+                    'Automatiza tus procesos manuales.',
+                    'Deja de perder leads cualificados.',
+                    'Consigue más resultados con el mismo equipo.'
+                ],
+                speed: 50,
+                deleteSpeed: 30,
+                breakLines: false,
+                waitUntilVisible: true,
+                loop: true,
+                afterString: (step, instance) => {
+                    instance.pause(1500);
+                }
+            }).go();
+        }
+
+        // --- LÓGICA DEL CALCULADOR DE ROI "DIAGNÓSTICO" ---
+        const peopleSlider = document.getElementById('people');
+        const frictionSlider = document.getElementById('friction');
+        const costSlider = document.getElementById('cost');
+        const peopleValue = document.getElementById('people-value');
+        const frictionValue = document.getElementById('friction-value');
+        const costValue = document.getElementById('cost-value');
+        const annualSavingsEl = document.getElementById('annual-savings');
+        const annualHoursEl = document.getElementById('annual-hours');
+        const disclaimerScannerLink = document.getElementById('disclaimer-scanner-link');
+
+        function formatCurrency(num) { /* ... */ return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(num); }
+        function formatHours(num) { /* ... */ return new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 }).format(num) + ' h'; }
+
+        function updateDiagnosticROI() {
+             if (!peopleSlider || !frictionSlider || !costSlider) return; // Evita errores si no existen
+             const people = parseFloat(peopleSlider.value);
+             const frictionHours = parseFloat(frictionSlider.value);
+             const costPerHour = parseFloat(costSlider.value);
+             peopleValue.textContent = people;
+             frictionValue.textContent = frictionHours + ' h';
+             costValue.textContent = formatCurrency(costPerHour);
+             const totalWeeklyHours = people * frictionHours;
+             const totalAnnualHours = totalWeeklyHours * 52;
+             const totalAnnualSavings = totalAnnualHours * costPerHour;
+             annualSavingsEl.textContent = formatCurrency(totalAnnualSavings);
+             annualHoursEl.textContent = formatHours(totalAnnualHours);
+        }
+
+        if (peopleSlider && frictionSlider && costSlider) {
+             [peopleSlider, frictionSlider, costSlider].forEach(slider => {
+                 slider.addEventListener('input', updateDiagnosticROI);
+             });
+             updateDiagnosticROI();
+        }
+
+        // --- LÓGICA DE MODALES (CORREGIDA) ---
+
+        // Modal 1: Tally (Escáner)
+        const tallyModal = document.getElementById('tallyModal');
+        const openTallyBtn_Hero = document.querySelector('button.open-modal-btn'); // Botón del Hero por clase
+        const openTallyBtn_Footer = document.getElementById('footerOpenScannerBtn'); // Botón del Footer
+        const openTallyBtn_Header = document.getElementById('nav-scan-button'); // Botón del Header
+        const closeTallyBtn = document.getElementById('closeScannerModalBtn'); // ID Único
+
+        if (tallyModal && closeTallyBtn) {
+            const openTallyButtons = [openTallyBtn_Hero, openTallyBtn_Footer, openTallyBtn_Header, disclaimerScannerLink].filter(Boolean);
+            openTallyButtons.forEach(btn => {
+                if (btn) btn.addEventListener('click', () => tallyModal.classList.remove('hidden'));
+            });
+            closeTallyBtn.addEventListener('click', () => tallyModal.classList.add('hidden'));
+
+            // Cerrar al hacer clic fuera (opcional)
+            tallyModal.addEventListener('click', function(event) {
+                 if (event.target === tallyModal) {
+                     tallyModal.classList.add('hidden');
+                 }
+            });
+        }
+
+        // Modal 2: Contacto (Tally)
+        const contactModal = document.getElementById('contactModal');
+        const openContactBtn_Footer = document.getElementById('openContactModalBtn'); // Botón del Footer
+        const closeContactBtn = document.getElementById('closeContactModalBtn_Unique'); // ID Único
+
+        if (contactModal && openContactBtn_Footer && closeContactBtn) {
+            openContactBtn_Footer.addEventListener('click', (e) => {
+                 e.preventDefault();
+                 contactModal.classList.remove('hidden');
+            });
+            closeContactBtn.addEventListener('click', () => contactModal.classList.add('hidden'));
+
+             // Cerrar al hacer clic fuera (corregido)
+            contactModal.addEventListener('click', function(event) {
+                 if (event.target === contactModal) { // Usa contactModal aquí
+                     contactModal.classList.add('hidden');
+                 }
+            });
+        }
+
+        // --- LÓGICA DEL HEADER DE CONVERSIÓN (ON SCROLL) ---
+        const headerCtasWrapper = document.getElementById('header-cta-wrapper'); // ID del DIV contenedor
+        const navRoiLink = document.getElementById('nav-roi-link'); // Enlace ROI dentro del wrapper
+        const navScanButton = document.getElementById('nav-scan-button'); // Botón Escáner dentro del wrapper
+        const triggerPoint = 100; // Umbral de scroll
+
+        if (headerCtasWrapper && navRoiLink && navScanButton) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > triggerPoint) {
+                    headerCtasWrapper.classList.remove('hidden', 'opacity-0');
+                    // Puedes añadir aquí clases de animación si quieres
+                } else {
+                    headerCtasWrapper.classList.add('opacity-0');
+                     // Espera a que termine la transición antes de ocultar
+                     setTimeout(() => {
+                         if (window.scrollY <= triggerPoint) {
+                             headerCtasWrapper.classList.add('hidden');
+                         }
+                     }, 300); // Debe coincidir con 'duration-300'
+                }
+            });
+        }
+
+        // --- LÓGICA DE SMOOTH SCROLL ---
+        function smoothScroll(targetId, event) {
+             const targetElement = document.getElementById(targetId);
+             if (targetElement) {
+                 event.preventDefault();
+                 targetElement.scrollIntoView({ behavior: 'smooth' });
+             }
+        }
+
+        const ctaRoiButton_Hero = document.getElementById('cta-roi');
+        if (ctaRoiButton_Hero) {
+            ctaRoiButton_Hero.addEventListener('click', function(event) {
+                smoothScroll('roi-calculator', event);
+            });
+        }
+
+        // El listener para navRoiLink ya está dentro de la lógica del header
+        // Re-añadimos por si acaso (no debería hacer daño)
+        if (navRoiLink) {
+            navRoiLink.addEventListener('click', function(event) {
+                smoothScroll('roi-calculator', event);
+            });
+        }
+
+    });
+</script>
 
 </body>
 </html>
+
+
