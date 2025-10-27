@@ -30,25 +30,20 @@
 <body class="bg-white text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-40"> <!-- z-40 para estar debajo del modal -->
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Branding (Logo Azul) -->
-            <div class="text-2xl font-bold text-blue-600">
-                Llestia
-            </div>
-            <!-- Links (Header de Conversión) -->
-            <div class="flex space-x-4">
-                <!-- Botón Calculadora (Oculto por defecto) -->
-                <a href="#roi-calculator" id="nav-roi-link" class="text-gray-600 hover:text-blue-600 transition-all duration-300 opacity-0 invisible transform -translate-y-2 py-2 px-3">
-                    Calculadora ROI
-                </a>
-                <!-- Botón Escáner (Oculto por defecto) - CAMBIADO A <button> -->
-                <button id="nav-scan-button" class="open-modal-btn bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 opacity-0 invisible transform -translate-y-2">
-                    Iniciar Escáner
-                </button>
-            </div>
-        </nav>
-    </header>
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-600"> Llestia
+        </div>
+        <div id="header-cta-wrapper" class="flex space-x-4 hidden opacity-0 transition-opacity duration-300">
+            <a href="#roi-calculator" id="nav-roi-link" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2 px-3">
+                Calculadora ROI
+            </a>
+            <button id="nav-scan-button" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                Iniciar Escáner
+            </button>
+        </div>
+    </nav>
+</header>
 
     <!-- Hero Section con Gradiente -->
     <main class="bg-gradient-to-br from-white to-gray-50">
@@ -138,56 +133,63 @@
 
 
     <!-- Calculador de ROI Interactivo -->
-    <section id="roi-calculator" class="bg-gray-100 py-20 md:py-24">
+   <section id="roi-calculator" class="bg-gray-100 py-20 md:py-24">
         <div class="container mx-auto px-6">
             <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto">
-                <!-- Título -->
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-4">Calcula tu ROI de Automatización</h2>
-                <p class="text-lg text-gray-600 text-center mb-10">Mueve los sliders y descubre tu potencial de ingresos oculto.</p>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Calcula tu ROI de Automatización</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Cada día, tu negocio dedica tiempo a tareas necesarias… pero repetitivas.<br>
+                            Ese tiempo tiene un coste oculto: horas, energía y, sobre todo, dinero.<br>
+                            Calcula en un minuto cuánto podrías recuperar automatizando.<br>
+                    </p>
+                </div>
 
-                <!-- Grid: Sliders a la izquierda, Resultado a la derecha -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     
-                    <!-- Columna de Sliders -->
-                    <div class="space-y-8">
-                        <!-- Slider 1: Tráfico Web -->
-                        <div>
-                            <label for="traffic" class="flex justify-between text-lg font-semibold text-gray-800 mb-2">
-                                <span>Visitantes Web / Mes</span>
-                                <span id="traffic-value" class="text-blue-600 font-bold">10,000</span>
-                            </label>
-                            <input type="range" id="traffic" min="1000" max="100000" value="10000" step="1000" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
-                        </div>
+                  <div class="space-y-8">
 
-                        <!-- Slider 2: Tasa de Conversión -->
-                        <div>
-                            <label for="conversion" class="flex justify-between text-lg font-semibold text-gray-800 mb-2">
-                                <span>Tasa de Conversión (Lead)</span>
-                                <span id="conversion-value" class="text-blue-600 font-bold">2.0%</span>
-                            </label>
-                            <input type="range" id="conversion" min="0.5" max="10" value="2.0" step="0.1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
-                        </div>
+    <div>
+        <div class="mb-2">
+            <label for="people" class="text-lg font-semibold text-gray-800">Nº Personas (Equipo Soporte/Op.)</label>
+            <span id="people-value" class="text-blue-600 font-bold float-right">5</span>
+        </div>
+        <input type="range" id="people" min="1" max="50" value="5" step="1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+        <p class="text-xs text-gray-500 mt-1">Gente en admin, gestión, coordinación, etc.</p>
+    </div>
 
-                        <!-- Slider 3: Valor de Cliente (LTV) -->
-                        <div>
-                            <label for="ltv" class="flex justify-between text-lg font-semibold text-gray-800 mb-2">
-                                <span>Valor Medio por Cliente (€)</span>
-                                <span id="ltv-value" class="text-blue-600 font-bold">€5,000</span>
-                            </label>
-                            <input type="range" id="ltv" min="500" max="50000" value="5000" step="500" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
-                        </div>
-                    </div>
+    <div>
+        <div class="mb-2">
+            <label for="friction" class="text-lg font-semibold text-gray-800">Horas Repetitivas Semanales (Promedio)</label>
+            <span id="friction-value" class="text-blue-600 font-bold float-right">8 h</span>
+        </div>
+        <input type="range" id="friction" min="1" max="20" value="8" step="1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+        <p class="text-xs text-gray-500 mt-1">Tiempo medio copiando datos, generando informes, emails estándar, etc.</p>
+    </div>
 
-                    <!-- Columna de Resultados -->
+    <div>
+        <div class="mb-2">
+            <label for="cost" class="text-lg font-semibold text-gray-800">Coste Medio / Hora (€) (Estimado)</label>
+            <span id="cost-value" class="text-blue-600 font-bold float-right">€30</span>
+        </div>
+        <input type="range" id="cost" min="15" max="100" value="30" step="1" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" style="accent-color: #2563eb;">
+        <p class="text-xs text-gray-500 mt-1">Coste total aproximado por hora de empleado.</p>
+    </div>
+
+</div>
+
                     <div class="bg-blue-600 text-white p-8 rounded-xl shadow-2xl text-center">
-                        <p class="text-xl font-medium text-blue-100 mb-2">Ingresos Mensuales Actuales</p>
-                        <div id="current-revenue" class="text-4xl font-extrabold mb-6">€10,000</div>
+                        <p class="text-xl font-medium text-blue-100 mb-2">Potencial de Ahorro Anual Estimado</p>
+                        <div id="annual-savings" class="text-5xl font-extrabold text-white mb-6">€62,400</div>
                         
                         <div class="border-t border-blue-400 my-6"></div>
 
-                        <p class="text-xl font-medium text-blue-100 mb-2">Con un 20% de mejora por fugas:</p>
-                        <div id="optimized-revenue" class="text-5xl font-extrabold text-white">€12,000</div>
-                        <div id="revenue-gain" class="text-xl font-semibold text-green-300 mt-3">+€2,000 / mes</div>
+                        <p class="text-xl font-medium text-blue-100 mb-2">Horas Anuales Recuperables</p>
+                        <div id="annual-hours" class="text-4xl font-extrabold text-white">2,080 h</div>
+
+                         <p class="text-blue-100 mt-8 text-xs italic">
+                            *Esta es una estimación. Usa el <button id="disclaimer-scanner-link" class="underline hover:text-white">Escáner de Fugas</button> para un diagnóstico preciso de tus procesos.*
+                         </p>
                     </div>
                 </div>
             </div>
@@ -195,33 +197,31 @@
     </section>
 
 <!--FOOTER -->
-
 <footer class="bg-gray-900 text-gray-400 py-12">
     <div class="container mx-auto px-6 text-center">
-        
+
         <p class="text-2xl font-bold text-white mb-2">Llestia</p>
-        
-        <p class="text-lg mb-4"> 
+
+        <p class="text-lg mb-4">
             <button id="openContactModalBtn" class="hover:text-white hover:underline transition-all">Contacto</button>
         </p>
-        
-        <p class="text-sm mb-4">
-            <a href="#" class="hover:text-white inline-block">Aviso Legal</a>
-            <span class="mx-2">&bull;</span> 
-            <a href="#" class="hover:text-white inline-block">Política de Privacidad</a>
-        </p>
-        
+
+        <div class="flex justify-center text-sm space-x-4 mb-4">
+            <a href="#" class="hover:text-white">Aviso Legal</a>
+            <span>&bull;</span>
+            <a href="#" class="hover:text-white">Política de Privacidad</a>
+        </div>
+
         <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
-    
+
     </div>
 </footer>
-
     <!-- HTML del Modal-Embed (Tally - Escáner) -->
     <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm"> <!-- z-index 60, > header's z-40 -->
         <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
             <div class="flex justify-between items-center p-4 border-b">
                 <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico</h3>
-                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+                <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
             </div>
             
             <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura para que quepa el header del modal -->
@@ -241,13 +241,11 @@
     <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
         <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
             <div class="flex justify-between items-center p-4 border-b">
-                <h3 class="text-lg font-bold text-gray-900">Contacto</h3>
-                <button id="closeContactModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+                <button id="closeContactModalBtn_Unique" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
             </div>
             
-            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura -->
-                <iframe 
-                    src="https://tally.so/r/3NKrab?transparentBackground=1&hideTitle=1"
+            <div class="w-full h-[calc(90vh-65px)]"> <iframe 
+                    src="https://tally.so/r/3NKrab?transparentBackground=1"
                     class="w-full h-full border-0"
                     frameborder="0" 
                     marginheight="0" 
@@ -260,191 +258,158 @@
 
 
     <!-- Scripts de JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            
-            // --- Lógica del Calculador de ROI ---
-            const trafficSlider = document.getElementById('traffic');
-            const conversionSlider = document.getElementById('conversion');
-            const ltvSlider = document.getElementById('ltv');
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-            const trafficValue = document.getElementById('traffic-value');
-            const conversionValue = document.getElementById('conversion-value');
-            const ltvValue = document.getElementById('ltv-value');
-
-            const currentRevenueEl = document.getElementById('current-revenue');
-            const optimizedRevenueEl = document.getElementById('optimized-revenue');
-            const revenueGainEl = document.getElementById('revenue-gain');
-
-            function formatCurrency(num) {
-                return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(num);
-            }
-
-            function updateROI() {
-                // Añadir comprobación por si los sliders no existen
-                if (!trafficSlider || !conversionSlider || !ltvSlider) return;
-                
-                const traffic = parseFloat(trafficSlider.value);
-                const conversion = parseFloat(conversionSlider.value) / 100;
-                const ltv = parseFloat(ltvSlider.value);
-
-                // Actualizar etiquetas de los sliders
-                trafficValue.textContent = new Intl.NumberFormat('es-ES').format(traffic);
-                conversionValue.textContent = `${conversionSlider.value}%`;
-                ltvValue.textContent = formatCurrency(ltv);
-
-                // Calcular resultados
-                const leads = traffic * conversion;
-                const currentRevenue = leads * ltv;
-                const optimizationGain = 0.20; // 20% de mejora
-                const optimizedRevenue = currentRevenue * (1 + optimizationGain);
-                const revenueGain = optimizedRevenue - currentRevenue;
-
-                // Actualizar panel de resultados
-                currentRevenueEl.textContent = formatCurrency(currentRevenue);
-                optimizedRevenueEl.textContent = formatCurrency(optimizedRevenue);
-                revenueGainEl.textContent = `+${formatCurrency(revenueGain)} / mes`;
-            }
-
-            // Event Listeners para los sliders
-            if (trafficSlider && conversionSlider && ltvSlider) {
-                [trafficSlider, conversionSlider, ltvSlider].forEach(slider => {
-                    slider.addEventListener('input', updateROI);
-                });
-                // Inicializar calculadora
-                updateROI();
-            }
-
-            
-            // --- Lógica de Animación TypeIt ---
-            if (document.getElementById('typeit-hero')) {
-                new TypeIt('#typeit-hero', {
-                    strings: [
-                        'Identifica tus fugas de ingresos.',
-                        'Automatiza tus procesos manuales.',
-                        'Deja de perder leads cualificados.',
-                        'Consigue más resultados con el mismo equipo.'
-                    ],
-                    speed: 35,
-                    deleteSpeed: 20,
-                    breakLines: false,
-                    waitUntilVisible: true,
-                    loop: true,
-                    afterString: (step, instance) => {
-                        instance.pause(2500); // Pausa de 2.5s después de escribir
-                    }
-                }).go();
-            }
-
-
-            // --- Lógica de Smooth Scroll (Solución JS) ---
-            
-            // Función para manejar el scroll suave
-            function smoothScroll(targetId) {
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    // Prevenir el salto brusco del ancla
-                    event.preventDefault(); 
-                    // Hacer scroll suave
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+        // --- LÓGICA DE TYPEIT ---
+        if (document.getElementById('typeit-hero')) {
+            new TypeIt('#typeit-hero', {
+                strings: [
+                    'Identifica tus fugas de ingresos.',
+                    'Automatiza tus procesos manuales.',
+                    'Deja de perder leads cualificados.',
+                    'Consigue más resultados con el mismo equipo.'
+                ],
+                speed: 50,
+                deleteSpeed: 30,
+                breakLines: false,
+                waitUntilVisible: true,
+                loop: true,
+                afterString: (step, instance) => {
+                    instance.pause(1500);
                 }
-            }
+            }).go();
+        }
 
-            // Botón del Hero
-            const ctaRoiButton = document.getElementById('cta-roi');
-            if (ctaRoiButton) {
-                ctaRoiButton.addEventListener('click', function(event) {
-                    smoothScroll('roi-calculator');
-                });
-            }
+        // --- LÓGICA DEL CALCULADOR DE ROI "DIAGNÓSTICO" ---
+        const peopleSlider = document.getElementById('people');
+        const frictionSlider = document.getElementById('friction');
+        const costSlider = document.getElementById('cost');
+        const peopleValue = document.getElementById('people-value');
+        const frictionValue = document.getElementById('friction-value');
+        const costValue = document.getElementById('cost-value');
+        const annualSavingsEl = document.getElementById('annual-savings');
+        const annualHoursEl = document.getElementById('annual-hours');
+        const disclaimerScannerLink = document.getElementById('disclaimer-scanner-link');
 
-            // Botón de la Navegación (con el ID actualizado)
-            const navCtaRoiButton = document.getElementById('nav-roi-link');
-            if (navCtaRoiButton) {
-                navCtaRoiButton.addEventListener('click', function(event) {
-                    smoothScroll('roi-calculator');
-                });
-            }
+        function formatCurrency(num) { /* ... */ return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(num); }
+        function formatHours(num) { /* ... */ return new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 }).format(num) + ' h'; }
 
-            
-            // --- Lógica del Header de Conversión (Scroll) ---
-            const navRoiLink = document.getElementById('nav-roi-link');
-            const navScanButton = document.getElementById('nav-scan-button');
+        function updateDiagnosticROI() {
+             if (!peopleSlider || !frictionSlider || !costSlider) return; // Evita errores si no existen
+             const people = parseFloat(peopleSlider.value);
+             const frictionHours = parseFloat(frictionSlider.value);
+             const costPerHour = parseFloat(costSlider.value);
+             peopleValue.textContent = people;
+             frictionValue.textContent = frictionHours + ' h';
+             costValue.textContent = formatCurrency(costPerHour);
+             const totalWeeklyHours = people * frictionHours;
+             const totalAnnualHours = totalWeeklyHours * 52;
+             const totalAnnualSavings = totalAnnualHours * costPerHour;
+             annualSavingsEl.textContent = formatCurrency(totalAnnualSavings);
+             annualHoursEl.textContent = formatHours(totalAnnualHours);
+        }
 
-            if (navRoiLink && navScanButton) {
-                window.addEventListener('scroll', function() {
-                    // Aparece después de 100px de scroll
-                    if (window.scrollY > 100) { 
-                        navRoiLink.classList.remove('opacity-0', 'invisible', '-translate-y-2');
-                        navRoiLink.classList.add('opacity-100', 'visible', 'translate-y-0');
+        if (peopleSlider && frictionSlider && costSlider) {
+             [peopleSlider, frictionSlider, costSlider].forEach(slider => {
+                 slider.addEventListener('input', updateDiagnosticROI);
+             });
+             updateDiagnosticROI();
+        }
 
-                        navScanButton.classList.remove('opacity-0', 'invisible', '-translate-y-2');
-                        navScanButton.classList.add('opacity-100', 'visible', 'translate-y-0');
-                    } else {
-                        navRoiLink.classList.add('opacity-0', 'invisible', '-translate-y-2');
-                        navRoiLink.classList.remove('opacity-100', 'visible', 'translate-y-0');
-                        
-                        navScanButton.classList.add('opacity-0', 'invisible', '-translate-y-2');
-                        navScanButton.classList.remove('opacity-100', 'visible', 'translate-y-0');
-                    }
-                });
-            }
+        // --- LÓGICA DE MODALES (CORREGIDA) ---
 
-            // --- LÓGICA DEL MODAL (TALLY EMBED - ESCÁNER) ---
-            const modal = document.getElementById('tallyModal');
-            const openButtons = document.querySelectorAll('.open-modal-btn'); // Selecciona por clase
-            const closeBtn = document.getElementById('closeModalBtn');
+        // Modal 1: Tally (Escáner)
+        const tallyModal = document.getElementById('tallyModal');
+        const openTallyBtn_Hero = document.querySelector('button.open-modal-btn'); // Botón del Hero por clase
+        const openTallyBtn_Footer = document.getElementById('footerOpenScannerBtn'); // Botón del Footer
+        const openTallyBtn_Header = document.getElementById('nav-scan-button'); // Botón del Header
+        const closeTallyBtn = document.getElementById('closeScannerModalBtn'); // ID Único
 
-            if (modal && openButtons.length > 0 && closeBtn) {
-                
-                // Abrir modal con cualquiera de los botones
-                openButtons.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        modal.classList.remove('hidden');
-                    });
-                });
+        if (tallyModal && closeTallyBtn) {
+            const openTallyButtons = [openTallyBtn_Hero, openTallyBtn_Footer, openTallyBtn_Header, disclaimerScannerLink].filter(Boolean);
+            openTallyButtons.forEach(btn => {
+                if (btn) btn.addEventListener('click', () => tallyModal.classList.remove('hidden'));
+            });
+            closeTallyBtn.addEventListener('click', () => tallyModal.classList.add('hidden'));
 
-                // Cerrar modal con el botón X
-                closeBtn.addEventListener('click', () => {
-                    modal.classList.add('hidden');
-                });
-                
-                // Opcional: Cerrar al hacer clic fuera del modal
-                modal.addEventListener('click', function(event) {
-                    if (event.target === modal) {
-                        modal.classList.add('hidden');
-                    }
-                });
-            }
+            // Cerrar al hacer clic fuera (opcional)
+            tallyModal.addEventListener('click', function(event) {
+                 if (event.target === tallyModal) {
+                     tallyModal.classList.add('hidden');
+                 }
+            });
+        }
 
-            // AÑADIDO: --- LÓGICA DEL MODAL (TALLY EMBED - CONTACTO) ---
-            const contactModal = document.getElementById('contactModal');
-            const openContactBtn = document.getElementById('openContactModalBtn');
-            const closeContactBtn = document.getElementById('closeContactModalBtn');
+        // Modal 2: Contacto (Tally)
+        const contactModal = document.getElementById('contactModal');
+        const openContactBtn_Footer = document.getElementById('openContactModalBtn'); // Botón del Footer
+        const closeContactBtn = document.getElementById('closeContactModalBtn_Unique'); // ID Único
 
-            if (contactModal && openContactBtn && closeContactBtn) {
-                
-                // Abrir modal de contacto
-                openContactBtn.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevenir cualquier comportamiento por defecto
-                    contactModal.classList.remove('hidden');
-                });
+        if (contactModal && openContactBtn_Footer && closeContactBtn) {
+            openContactBtn_Footer.addEventListener('click', (e) => {
+                 e.preventDefault();
+                 contactModal.classList.remove('hidden');
+            });
+            closeContactBtn.addEventListener('click', () => contactModal.classList.add('hidden'));
 
-                // Cerrar modal de contacto con el botón X
-                closeContactBtn.addEventListener('click', () => {
-                    contactModal.classList.add('hidden');
-                });
-                
-                // Opcional: Cerrar al hacer clic fuera del modal
-                contactModal.addEventListener('click', function(event) {
-                    if (event.target === modal) {
-                        contactModal.classList.add('hidden');
-                    }
-                });
-            }
+             // Cerrar al hacer clic fuera (corregido)
+            contactModal.addEventListener('click', function(event) {
+                 if (event.target === contactModal) { // Usa contactModal aquí
+                     contactModal.classList.add('hidden');
+                 }
+            });
+        }
 
-        });
-    </script>
+        // --- LÓGICA DEL HEADER DE CONVERSIÓN (ON SCROLL) ---
+        const headerCtasWrapper = document.getElementById('header-cta-wrapper'); // ID del DIV contenedor
+        const navRoiLink = document.getElementById('nav-roi-link'); // Enlace ROI dentro del wrapper
+        const navScanButton = document.getElementById('nav-scan-button'); // Botón Escáner dentro del wrapper
+        const triggerPoint = 100; // Umbral de scroll
+
+        if (headerCtasWrapper && navRoiLink && navScanButton) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > triggerPoint) {
+                    headerCtasWrapper.classList.remove('hidden', 'opacity-0');
+                    // Puedes añadir aquí clases de animación si quieres
+                } else {
+                    headerCtasWrapper.classList.add('opacity-0');
+                     // Espera a que termine la transición antes de ocultar
+                     setTimeout(() => {
+                         if (window.scrollY <= triggerPoint) {
+                             headerCtasWrapper.classList.add('hidden');
+                         }
+                     }, 300); // Debe coincidir con 'duration-300'
+                }
+            });
+        }
+
+        // --- LÓGICA DE SMOOTH SCROLL ---
+        function smoothScroll(targetId, event) {
+             const targetElement = document.getElementById(targetId);
+             if (targetElement) {
+                 event.preventDefault();
+                 targetElement.scrollIntoView({ behavior: 'smooth' });
+             }
+        }
+
+        const ctaRoiButton_Hero = document.getElementById('cta-roi');
+        if (ctaRoiButton_Hero) {
+            ctaRoiButton_Hero.addEventListener('click', function(event) {
+                smoothScroll('roi-calculator', event);
+            });
+        }
+
+        // El listener para navRoiLink ya está dentro de la lógica del header
+        // Re-añadimos por si acaso (no debería hacer daño)
+        if (navRoiLink) {
+            navRoiLink.addEventListener('click', function(event) {
+                smoothScroll('roi-calculator', event);
+            });
+        }
+
+    });
+</script>
 
 </body>
 </html>
