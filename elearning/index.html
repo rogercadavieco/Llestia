@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatiza tu Academia Online - Llestia.com</title>
+    <meta name="description" content="Automatiza la gestión de tu academia o cursos online con Kajabi, Hotmart, Teachable. ¡Deja de trabajar a mano y escala tu negocio!">
+    
+    <!-- Favicons de Llestia.com (con rutas absolutas) -->
+    <link rel="icon" href="https://llestia.com/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="https://llestia.com/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+    
+    <!-- Importar Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Importar tipografía Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        // Configuración de Tailwind para usar 'Inter' como fuente por defecto
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Aplicar la fuente Inter como predeterminada */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<!-- 
+  Cambiado a 'bg-gradient-to-br from-white to-gray-50' para coincidir 
+  con el estilo de la web principal de llestia.com 
+-->
+<body class="bg-gradient-to-br from-white to-gray-50 min-h-screen">
+
+    <!-- 
+      Header de Llestia.com (Adaptado)
+      - Se eliminó el 'sticky' para esta landing simple.
+      - Se usa la URL absoluta para el logo.
+      - Se reemplazaron los CTAs por un enlace simple de "Volver".
+    -->
+    <header class="bg-white shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://llestia.com/">
+                <!-- 
+                  IMPORTANTE: Se usa la URL absoluta para que el logo cargue
+                  correctamente en esta página.
+                -->
+                <img src="https://llestia.com/assets/llestia-logo.svg" alt="Llestia" class="h-8 w-auto">
+            </a>
+            <div>
+                 <a href="https://llestia.com/" class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium text-sm sm:text-base">
+                    &larr; Volver a Llestia.com
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 
+      Contenedor principal al estilo SaaS
+      - Añadido margen superior (mt) e inferior (mb) para separarlo
+        del header y footer.
+    -->
+    <main class="bg-white w-full max-w-4xl p-6 sm:p-10 rounded-2xl shadow-xl text-center my-12 sm:my-16 mx-auto px-4">
+
+        <!-- Encabezados -->
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-3">
+            Automatización Inteligente para tu Academia Online.
+        </h1>
+        <h2 class="text-lg sm:text-2xl font-medium text-blue-600 mb-8 sm:mb-12">
+            Optimizamos tus procesos en Kajabi, Hotmart o tu plataforma e-learning, para que dejes de gestionar y empieces a escalar.
+        </h2>
+
+        <!-- Contenedor del Video -->
+        <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg mx-auto mb-12 border border-gray-100">
+            <iframe
+                class="w-full h-full"
+                src="https://vimeo.com/1133536823?fl=ip&fe=ec" 
+                title="Video de presentación"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Sección de Beneficios (el <ul>) -->
+        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-left sm:text-center">
+            Imagina tu academia funcionando en "piloto automático"
+        </h3>
+        
+        <ul class="space-y-4 text-left">
+           <!-- Inicia la nueva lista de automatizaciones (Enfoque ROI) -->
+<ul class="space-y-4 text-left">
+            
+    <!-- 1. Captar Leads -->
+    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Nutrición de Leads (Captar):</strong> Convierte curiosos en alumnos. Conecta tu CRM y envía secuencias personalizadas a leads que se enfrían.
+        </span>
+    </li>
+    
+    <!-- 2. Onboarding -->
+    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Onboarding 24/7 (Administrar):</strong> Entrega accesos y guías de inicio al instante, incluso si la compra es a las 3 AM, sin intervención manual.
+        </span>
+    </li>
+
+    <!-- 3. Recuperar Pagos -->
+    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Recuperación de Pagos:</strong> Secuencias automáticas (email y SMS) para carritos abandonados y tarjetas caducadas. Deja de perder ingresos por morosidad.
+        </span>
+    </li>
+    
+    <!-- 4. Retener Alumnos -->
+    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Retención de Alumnos (Retener):</strong> Detecta alumnos inactivos (ej. "sin login en 7 días") y envíales un email automático de ánimo para que no abandonen.
+        </span>
+    </li>
+
+    <!-- 5. Upselling -->
+    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Upselling y Venta Cruzada:</strong> Ofrece automáticamente tu curso avanzado (o una sesión 1-a-1) justo cuando el alumno complete el 100% del curso básico.
+        </span>
+    </li>
+
+    <!-- 6. Certificados -->
+    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Gestión de Certificados:</strong> Generación y envío automático de diplomas en el instante en que el alumno aprueba el módulo final.
+        </span>
+    </li>
+</ul>
+<!-- Fin de la lista -->
+        <!-- Botón CTA (Call to Action) -->
+        <!-- CAMBIADO: De <a> a <button> para abrir el modal -->
+        <button 
+           class="open-modal-btn inline-block text-lg font-semibold text-white bg-blue-600 rounded-lg px-8 py-3 shadow-lg mt-10
+                  hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5
+                  transform transition-all duration-300 ease-in-out">
+            ¡Inicia tu Análisis de Fugas!
+        </button>
+
+    </main>
+
+    <!-- 
+      Footer de Llestia.com (Adaptado)
+      - "Contacto" se ha convertido en un 'mailto:' link para
+        ser consistente con el CTA de esta página.
+      - Los enlaces legales tienen rutas absolutas.
+    -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+    
+            <p class="text-2xl font-bold text-white mb-2">Llestia</p>
+    
+            <p class="text-lg mb-4">
+                <a href="mailto:tuemail@llestia.com?subject=Contacto%20desde%20Landing%20Academia" class="hover:text-white hover:underline transition-all">Contacto</a>
+            </p>
+    
+            <div class="flex justify-center text-sm space-x-4 mb-4">
+                <!-- Rutas absolutas para los enlaces legales -->
+                <a href="https://llestia.com/aviso_legal.html" class="hover:text-white">Aviso Legal</a>
+                <span>&bull;</span>
+                <a href="https://llestia.com/politica_privacidad.html" class="hover:text-white">Política de Privacidad</a>
+            </div>
+    
+            <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
+    
+        </div>
+    </footer>
+
+    <!-- 
+      AÑADIDO: HTML del Modal-Embed (Tally - Escáner) 
+      Copiado de llestia.com
+    -->
+    <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico de Automatización</h3>
+                <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+            </div>
+            
+            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura para que quepa el header del modal -->
+                <iframe 
+                    src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
+                    class="w-full h-full border-0"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Escáner de Fugas B2B">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 
+      AÑADIDO: JavaScript para controlar el Modal
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- LÓGICA DEL MODAL DE TALLY (Escáner) ---
+            const tallyModal = document.getElementById('tallyModal');
+            // Usamos querySelectorAll para coger todos los botones que abren el modal
+            const openTallyButtons = document.querySelectorAll('.open-modal-btn');
+            const closeTallyBtn = document.getElementById('closeScannerModalBtn');
+        
+            if (tallyModal && closeTallyBtn && openTallyButtons.length > 0) {
+                
+                // Añadir evento a todos los botones de abrir
+                openTallyButtons.forEach(btn => {
+                    btn.addEventListener('click', () => tallyModal.classList.remove('hidden'));
+                });
+        
+                // Evento para el botón de cerrar
+                closeTallyBtn.addEventListener('click', () => tallyModal.classList.add('hidden'));
+        
+                // Evento para cerrar haciendo clic fuera del modal
+                tallyModal.addEventListener('click', function(event) {
+                    if (event.target === tallyModal) {
+                        tallyModal.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
