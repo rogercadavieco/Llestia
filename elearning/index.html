@@ -1,315 +1,288 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automatiza tu Academia Online - Llestia.com</title>
-    <meta name="description" content="Automatiza la gestión de tu academia o cursos online con Kajabi, Hotmart, Teachable. ¡Deja de trabajar a mano y escala tu negocio!">
-    
-    <!-- Favicons de Llestia.com (con rutas absolutas) -->
-    <link rel="icon" href="https://llestia.com/assets/favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="https://llestia.com/assets/favicon-32x32.png" type="image/png" sizes="32x32">
-    
-    <!-- Importar Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Importar tipografía Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automatiza tu Academia Online - Llestia.com</title>
+  <meta name="description" content="Automatiza la gestión de tu academia o cursos online con Kajabi, Hotmart, Teachable. ¡Deja de trabajar a mano y escala tu negocio!">
 
-    <script>
-        // Configuración de Tailwind para usar 'Inter' como fuente por defecto
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
+  <!-- Favicons -->
+  <link rel="icon" href="https://llestia.com/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://llestia.com/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
         }
-    </script>
-    
-    <style>
-        /* Aplicar la fuente Inter como predeterminada */
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  </style>
 </head>
-<!-- 
-  Cambiado a 'bg-gradient-to-br from-white to-gray-50' para coincidir 
-  con el estilo de la web principal de llestia.com 
--->
+
 <body class="bg-gradient-to-br from-white to-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="https://llestia.com/">
+        <img src="https://llestia.com/assets/llestia-logo.svg" alt="Llestia" class="h-8 w-auto">
+      </a>
+      <div>
+        <a href="https://llestia.com/" class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium text-sm sm:text-base">
+          &larr; Volver a Llestia.com
+        </a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- 
-      Header de Llestia.com (Adaptado)
-      - Se eliminó el 'sticky' para esta landing simple.
-      - Se usa la URL absoluta para el logo.
-      - Se reemplazaron los CTAs por un enlace simple de "Volver".
-    -->
-    <header class="bg-white shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="https://llestia.com/">
-                <!-- 
-                  IMPORTANTE: Se usa la URL absoluta para que el logo cargue
-                  correctamente en esta página.
-                -->
-                <img src="https://llestia.com/assets/llestia-logo.svg" alt="Llestia" class="h-8 w-auto">
-            </a>
-            <div>
-                 <a href="https://llestia.com/" class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium text-sm sm:text-base">
-                    &larr; Volver a Llestia.com
-                </a>
-            </div>
-        </nav>
-    </header>
+  <!-- Main -->
+  <main class="bg-white w-full max-w-4xl p-6 sm:p-10 rounded-2xl shadow-xl text-center my-12 sm:my-16 mx-auto">
 
-    <!-- 
-      Contenedor principal al estilo SaaS
-      - Añadido margen superior (mt) e inferior (mb) para separarlo
-        del header y footer.
-    -->
-    <main class="bg-white w-full max-w-4xl p-6 sm:p-10 rounded-2xl shadow-xl text-center my-12 sm:my-16 mx-auto px-4">
+    <!-- Hero -->
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-3">
+      ¿Cuántos ingresos está perdiendo tu academia ahora mismo?
+    </h1>
+    <h2 class="text-lg sm:text-2xl font-medium text-blue-600 mb-8 sm:mb-12">
+      Descúbrelo con nuestro Analista de Fugas y recibe un diagnóstico completo sobre las fugas de procesos en tu negocio e-learning.
+    </h2>
 
-        <!-- Encabezados -->
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-3">
-            ¿Cuántos ingresos está perdiendo tu academia ahora mismo?
-        </h1>
-        <h2 class="text-lg sm:text-2xl font-medium text-blue-600 mb-8 sm:mb-12">
-            Descúbrelo con nuestro Analista de Fugas y recibe un diagnóstico completo sobre las fugas de procesos en tu negocio e-learning.
-        </h2>
-
-        <!-- Contenedor del video Vimeo -->
-<div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg mx-auto mb-12 border border-gray-100 relative">
-  <iframe
-    src="https://player.vimeo.com/video/1133536823?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0&badge=0"
-    class="absolute inset-0 w-full h-full rounded-xl"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    title="Llestia_Automatización Inteligente"
-    allowfullscreen>
-  </iframe>
-</div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-
-
-<!-- Sección de Beneficios (enfoque control + ROI) -->
-<!-- Sección de Beneficios (enfoque control + ROI) -->
-<section aria-labelledby="beneficios" class="max-w-3xl mx-auto">
-  <h3 id="beneficios" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-left sm:text-center">
-    Tu academia es un negocio. Y todo negocio tiene <span class="text-blue-600 font-semibold">fugas.</span>
-
-
-  </h3>
-
-
-
-  <ul class="space-y-4 text-left">
-    <!-- 1. Captar Leads -->
-    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-gray-900">Nutrición de leads (Captar):</strong>
-        Convierte a curiosos en alumnos conectando tu CRM y activando secuencias que reactivan leads fríos sin trabajo manual.
-      </span>
-    </li>
-
-    <!-- Punto Clave de IA: Soporte -->
-    <li class="flex items-start space-x-3 bg-blue-50 p-4 rounded-lg border border-blue-100 ring-2 ring-blue-200">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.625L16.5 21.75l-.398-1.125a3.375 3.375 0 00-2.455-2.456L12.75 18l1.125-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.125a3.375 3.375 0 002.456 2.456L20.25 18l-1.125.398a3.375 3.375 0 00-2.456 2.456z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-blue-700">Soporte inteligente 24/7 (IA):</strong>
-        Un agente entrenado en tus cursos responde dudas (contenido, pagos, horarios) al instante, liberando horas de soporte.
-      </span>
-    </li>
-
-    <!-- 2. Onboarding -->
-    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-gray-900">Onboarding sin esperas (Administrar):</strong>
-        Accesos, guías y bienvenida automáticos incluso a las 3 AM. Cero cuellos de botella en el arranque.
-      </span>
-    </li>
-
-    <!-- 3. Recuperar Pagos -->
-    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-gray-900">Recuperación de pagos:</strong>
-        Emails y SMS automáticos para carritos abandonados y tarjetas caducadas. Menos fugas, más ingreso retenido.
-      </span>
-    </li>
-
-    <!-- 4. Retener Alumnos -->
-    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-gray-900">Retención activa (Retener):</strong>
-        Detecta inactividad (p. ej., “7 días sin login”) y envía mensajes de re-enganche. Reduce abandonos sin perseguir manualmente.
-      </span>
-    </li>
-
-    <!-- Punto Clave de IA: Riesgo/Insights -->
-    <li class="flex items-start space-x-3 bg-blue-50 p-4 rounded-lg border border-blue-100 ring-2 ring-blue-200">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625C9.75 8.004 10.254 7.5 10.875 7.5h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25A1.125 1.125 0 019.75 19.875V8.625zM16.5 4.125C16.5 3.504 17.004 3 17.625 3h2.25C20.496 3 21 3.504 21 4.125v15.75C21 20.496 20.496 21 19.875 21h-2.25A1.125 1.125 0 0116.5 19.875V4.125z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-blue-700">Análisis proactivo de alumnos (IA):</strong>
-        Señales de riesgo y atascos por lección. “7 alumnos en riesgo de abandono” → para actuar antes que el problema se convierta en abandono.
-      </span>
-    </li>
-
-    <!-- 5. Upselling -->
-    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-gray-900">Upselling y venta cruzada:</strong>
-        Oferta automática del curso avanzado o sesión 1-a-1 al completar el básico. Momento correcto, mensaje adecuado.
-      </span>
-    </li>
-
-    <!-- 6. Certificados -->
-    <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-      <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="text-base font-medium text-gray-700">
-        <strong class="text-gray-900">Certificados sin esperas:</strong>
-        Generación y envío de diplomas justo al aprobar el módulo final. Experiencia pulida y sin tareas repetitivas.
-      </span>
-    </li>
-  </ul>
-
-  <!-- Micro-prueba social opcional (breve y sin fricción) -->
-  <!-- <p class="mt-4 text-sm text-gray-500 text-left sm:text-center">
-    De media, nuestros clientes recuperan entre un 8% y un 15% de ingresos por pagos fallidos en 30 días.*
-  </p> -->
-</section>
-
-
-  <!-- Micro-prueba social opcional (breve y sin fricción) -->
-  <!-- <p class="mt-4 text-sm text-gray-500 text-left sm:text-center">
-    De media, nuestros clientes recuperan entre un 8% y un 15% de ingresos por pagos fallidos en 30 días.*
-  </p> -->
-</section>
-
-<!-- Fin de la lista -->
-        <!-- Botón CTA (Call to Action) -->
-        <!-- CAMBIADO: De <a> a <button> para abrir el modal -->
-       <div class="mt-12 text-center">
-    <p class="text-lg text-gray-700 font-medium">
-        Acceso 100% sin coste durante nuestra fase de lanzamiento.
-    </p>
-            <button 
-           class="open-modal-btn inline-block text-lg font-semibold text-white bg-blue-600 rounded-lg px-8 py-3 shadow-lg mt-10
-                  hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5
-                  transform transition-all duration-300 ease-in-out">
-            ¡Inicia tu Análisis de Fugas!
-        </button>
-
-    </main>
-
-    <!-- 
-      Footer de Llestia.com (Adaptado)
-      - "Contacto" se ha convertido en un 'mailto:' link para
-        ser consistente con el CTA de esta página.
-      - Los enlaces legales tienen rutas absolutas.
-    -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="container mx-auto px-6 text-center">
-    
-            <p class="text-2xl font-bold text-white mb-2">Llestia</p>
-    
-            <p class="text-lg mb-4">
-                <a href="mailto:tuemail@llestia.com?subject=Contacto%20desde%20Landing%20Academia" class="hover:text-white hover:underline transition-all">Contacto</a>
-            </p>
-    
-            <div class="flex justify-center text-sm space-x-4 mb-4">
-                <!-- Rutas absolutas para los enlaces legales -->
-                <a href="https://llestia.com/aviso_legal.html" class="hover:text-white">Aviso Legal</a>
-                <span>&bull;</span>
-                <a href="https://llestia.com/politica_privacidad.html" class="hover:text-white">Política de Privacidad</a>
-            </div>
-    
-            <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
-    
-        </div>
-    </footer>
-
-    <!-- 
-      AÑADIDO: HTML del Modal-Embed (Tally - Escáner) 
-      Copiado de llestia.com
-    -->
-    <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
-        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico de Automatización</h3>
-                <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
-            </div>
-            
-            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura para que quepa el header del modal -->
-                <iframe 
-                    src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
-                    class="w-full h-full border-0"
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Escáner de Fugas B2B">
-                </iframe>
-            </div>
-        </div>
+    <!-- Vídeo -->
+    <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg mx-auto mb-12 border border-gray-100 relative">
+      <iframe
+        src="https://player.vimeo.com/video/1133536823?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0&badge=0"
+        class="absolute inset-0 w-full h-full rounded-xl"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        title="Llestia_Automatización Inteligente"
+        allowfullscreen>
+      </iframe>
     </div>
-    
-    <!-- 
-      AÑADIDO: JavaScript para controlar el Modal
-    -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // --- LÓGICA DEL MODAL DE TALLY (Escáner) ---
-            const tallyModal = document.getElementById('tallyModal');
-            // Usamos querySelectorAll para coger todos los botones que abren el modal
-            const openTallyButtons = document.querySelectorAll('.open-modal-btn');
-            const closeTallyBtn = document.getElementById('closeScannerModalBtn');
-        
-            if (tallyModal && closeTallyBtn && openTallyButtons.length > 0) {
-                
-                // Añadir evento a todos los botones de abrir
-                openTallyButtons.forEach(btn => {
-                    btn.addEventListener('click', () => tallyModal.classList.remove('hidden'));
-                });
-        
-                // Evento para el botón de cerrar
-                closeTallyBtn.addEventListener('click', () => tallyModal.classList.add('hidden'));
-        
-                // Evento para cerrar haciendo clic fuera del modal
-                tallyModal.addEventListener('click', function(event) {
-                    if (event.target === tallyModal) {
-                        tallyModal.classList.add('hidden');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
+    <!-- Cómo funciona el Analista de Fugas (nuevo bloque) -->
+    <section class="max-w-4xl mx-auto text-center py-6 sm:py-10 px-2 sm:px-4">
+      <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+        Cómo funciona el <span class="text-blue-600">Analista de Fugas</span>
+      </h3>
+      <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
+        Diagnostica automáticamente los puntos de pérdida en tu academia y te entrega un plan de automatización hecho a medida.
+      </p>
+
+      <div class="grid sm:grid-cols-3 gap-6 text-left">
+        <!-- Paso 1 -->
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition">
+          <div class="text-blue-600 text-xl font-bold mb-2">1. Responde el diagnóstico</div>
+          <p class="text-gray-700 text-sm">
+            Completa un breve formulario con información sobre tus cursos, alumnos y herramientas actuales.
+          </p>
+        </div>
+        <!-- Paso 2 -->
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition">
+          <div class="text-blue-600 text-xl font-bold mb-2">2. Análisis con IA</div>
+          <p class="text-gray-700 text-sm">
+            Nuestro sistema combina n8n e IA para analizar tus procesos y detectar fugas de tiempo, margen o conversión.
+          </p>
+        </div>
+        <!-- Paso 3 -->
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition">
+          <div class="text-blue-600 text-xl font-bold mb-2">3. Recibe tu informe</div>
+          <p class="text-gray-700 text-sm">
+            En minutos recibes un diagnóstico claro con las automatizaciones prioritarias para recuperar horas y beneficios.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10">
+        <button
+          class="open-modal-btn inline-block text-lg font-semibold text-white bg-blue-600 rounded-lg px-8 py-3 shadow-lg
+                 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5 transform transition-all duration-300 ease-in-out">
+          Inicia tu Análisis de Fugas
+        </button>
+      </div>
+    </section>
+
+    <!-- Beneficios / Automatizaciones posibles -->
+    <section aria-labelledby="beneficios" class="max-w-3xl mx-auto mt-12">
+      <h3 id="beneficios" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-left sm:text-center">
+        Qué podrás automatizar <span class="whitespace-nowrap">tras el diagnóstico</span>
+      </h3>
+
+      <ul class="space-y-4 text-left">
+        <!-- 1. Captar Leads -->
+        <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Nutrición de leads (Captar):</strong>
+            Convierte a curiosos en alumnos conectando tu CRM y activando secuencias que reactivan leads fríos sin trabajo manual.
+          </span>
+        </li>
+
+        <!-- IA: Soporte -->
+        <li class="flex items-start space-x-3 bg-blue-50 p-4 rounded-lg border border-blue-100 ring-2 ring-blue-200">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.625L16.5 21.75l-.398-1.125a3.375 3.375 0 00-2.455-2.456L12.75 18l1.125-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.125a3.375 3.375 0 002.456 2.456L20.25 18l-1.125.398a3.375 3.375 0 00-2.456 2.456z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-blue-700">Soporte inteligente 24/7 (IA):</strong>
+            Un agente entrenado en tus cursos responde dudas (contenido, pagos, horarios) al instante, liberando horas de soporte.
+          </span>
+        </li>
+
+        <!-- 2. Onboarding -->
+        <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Onboarding sin esperas (Administrar):</strong>
+            Accesos, guías y bienvenida automáticos incluso a las 3 AM. Cero cuellos de botella en el arranque.
+          </span>
+        </li>
+
+        <!-- 3. Recuperar Pagos -->
+        <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Recuperación de pagos:</strong>
+            Emails y SMS automáticos para carritos abandonados y tarjetas caducadas. Menos fugas, más ingreso retenido.
+          </span>
+        </li>
+
+        <!-- 4. Retener Alumnos -->
+        <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Retención activa (Retener):</strong>
+            Detecta inactividad (p. ej., “7 días sin login”) y envía mensajes de re-enganche. Reduce abandonos sin perseguir manualmente.
+          </span>
+        </li>
+
+        <!-- IA: Riesgo/Insights -->
+        <li class="flex items-start space-x-3 bg-blue-50 p-4 rounded-lg border border-blue-100 ring-2 ring-blue-200">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625C9.75 8.004 10.254 7.5 10.875 7.5h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25A1.125 1.125 0 019.75 19.875V8.625zM16.5 4.125C16.5 3.504 17.004 3 17.625 3h2.25C20.496 3 21 3.504 21 4.125v15.75C21 20.496 20.496 21 19.875 21h-2.25A1.125 1.125 0 0116.5 19.875V4.125z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-blue-700">Análisis proactivo de alumnos (IA):</strong>
+            Señales de riesgo y atascos por lección. “7 alumnos en riesgo de abandono” → para actuar antes que el problema se convierta en abandono.
+          </span>
+        </li>
+
+        <!-- 5. Upselling -->
+        <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Upselling y venta cruzada:</strong>
+            Oferta automática del curso avanzado o sesión 1-a-1 al completar el básico. Momento correcto, mensaje adecuado.
+          </span>
+        </li>
+
+        <!-- 6. Certificados -->
+        <li class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+          <svg class="flex-shrink-0 h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-base font-medium text-gray-700">
+            <strong class="text-gray-900">Certificados sin esperas:</strong>
+            Generación y envío de diplomas justo al aprobar el módulo final. Experiencia pulida y sin tareas repetitivas.
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Nota + CTA final -->
+    <div class="mt-12 text-center">
+      <p class="text-lg text-gray-700 font-medium">
+        Acceso 100% sin coste durante nuestra fase de lanzamiento.
+      </p>
+      <button
+        class="open-modal-btn inline-block text-lg font-semibold text-white bg-blue-600 rounded-lg px-8 py-3 shadow-lg mt-6
+               hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5 transform transition-all duration-300 ease-in-out">
+        ¡Inicia tu Análisis de Fugas!
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-2xl font-bold text-white mb-2">Llestia</p>
+
+      <p class="text-lg mb-4">
+        <a href="mailto:tuemail@llestia.com?subject=Contacto%20desde%20Landing%20Academia" class="hover:text-white hover:underline transition-all">Contacto</a>
+      </p>
+
+      <div class="flex justify-center text-sm space-x-4 mb-4">
+        <a href="https://llestia.com/aviso_legal.html" class="hover:text-white">Aviso Legal</a>
+        <span>&bull;</span>
+        <a href="https://llestia.com/politica_privacidad.html" class="hover:text-white">Política de Privacidad</a>
+      </div>
+
+      <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Tally -->
+  <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
+      <div class="flex justify-between items-center p-4 border-b">
+        <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico de Automatización</h3>
+        <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl" aria-label="Cerrar">&times;</button>
+      </div>
+
+      <div class="w-full h-[calc(90vh-65px)]">
+        <iframe
+          src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
+          class="w-full h-full border-0"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Escáner de Fugas B2B">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Modal -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tallyModal = document.getElementById('tallyModal');
+      const openTallyButtons = document.querySelectorAll('.open-modal-btn');
+      const closeTallyBtn = document.getElementById('closeScannerModalBtn');
+
+      if (tallyModal && closeTallyBtn && openTallyButtons.length > 0) {
+        openTallyButtons.forEach(btn => {
+          btn.addEventListener('click', () => tallyModal.classList.remove('hidden'));
+        });
+        closeTallyBtn.addEventListener('click', () => tallyModal.classList.add('hidden'));
+        tallyModal.addEventListener('click', function (event) {
+          if (event.target === tallyModal) { tallyModal.classList.add('hidden'); }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
