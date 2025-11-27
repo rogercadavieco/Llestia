@@ -31,22 +31,37 @@
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-40">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/">
-  			<img src="assets/llestia-logo.svg" alt="Llestia" class="h-8 w-auto">
-		</a>
-        <div id="header-cta-wrapper" class="flex space-x-4 hidden opacity-0 transition-opacity duration-300">
-            <a href="#roi-calculator" id="nav-roi-link" class="text-gray-600 hover:text-blue-600 transition duration-300 py-2 px-3">
-                Calculadora ROI
-            </a>
-            <button id="nav-scan-button" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
-                Iniciar Escáner
-            </button>
-        </div>
-    </nav>
+  <!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-40">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/">
+      <img src="assets/llestia-logo.svg" alt="Llestia" class="h-8 w-auto">
+    </a>
+
+    <div id="header-cta-wrapper"
+         class="flex space-x-4 hidden opacity-0 transition-opacity duration-300">
+      
+      <!-- Link a calculadora ROI -->
+      <a href="#roi-calculator" id="nav-roi-link"
+         class="text-gray-600 hover:text-blue-600 transition duration-300 py-2 px-3">
+        Calculadora ROI
+      </a>
+
+      <!-- NUEVO: link a bloque de contacto -->
+      <a href="#contacto"
+         class="text-gray-600 hover:text-blue-600 transition duration-300 py-2 px-3">
+        Contacto
+      </a>
+
+      <!-- Botón Escáner de Fugas -->
+      <button id="nav-scan-button"
+              class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+        Iniciar Escáner
+      </button>
+    </div>
+  </nav>
 </header>
+
 
     <!-- Hero Section con Gradiente -->
     <main class="bg-gradient-to-br from-white to-gray-50">
@@ -569,6 +584,7 @@
 
 </body>
 </html>
+
 
 
 
