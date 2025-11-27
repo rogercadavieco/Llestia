@@ -352,6 +352,57 @@
         <p class="text-sm">&copy; 2024 Llestia. Todos los derechos reservados.</p>
 
         </div>
+
+<!-- Contacto Final -->
+<section id="contacto" class="bg-white py-16 md:py-20">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+        ¿Prefieres hablarlo directamente?
+      </h2>
+      <p class="text-lg text-gray-600">
+        Cuéntame qué proceso te está frenando y te respondo con una propuesta concreta de automatización.
+      </p>
+    </div>
+
+    <div class="bg-gray-50 rounded-2xl shadow-lg p-6 md:p-8">
+      <form action="https://formspree.io/f/tu-endpoint-o-lo-que-uses" method="POST" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+            <input type="text" name="nombre" required
+                   class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" name="email" required
+                   class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            ¿Qué proceso te gustaría automatizar?
+          </label>
+          <textarea name="mensaje" rows="4" required
+                    class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <p class="text-xs text-gray-500">
+            No spam, ni boletines. Solo respuesta directa a tu consulta.
+          </p>
+          <button type="submit"
+                  class="px-6 py-3 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200">
+            Enviar consulta
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+	
 </footer>
     <!-- HTML del Modal-Embed (Tally - Escáner) -->
     <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm"> <!-- z-index 60, > header's z-40 -->
@@ -552,6 +603,7 @@
 
 </body>
 </html>
+
 
 
 
