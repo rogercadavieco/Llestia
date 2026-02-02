@@ -156,26 +156,28 @@
   </footer>
 
   <!-- Modal Tally -->
-  <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
-    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
-      <div class="flex justify-between items-center p-4 border-b">
-        <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico de Automatización</h3>
-        <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl" aria-label="Cerrar">&times;</button>
-      </div>
+ <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
+   
+   <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full h-[85vh] overflow-hidden transform transition-all border border-gray-100">
+     
+     <div class="flex justify-between items-center p-6 border-b">
+       <h3 class="text-xl font-bold text-gray-900">Inicia tu Análisis de Fugas Operativas</h3>
+       <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl leading-none" aria-label="Cerrar">&times;</button>
+     </div>
 
-      <div class="w-full h-[calc(90vh-65px)]">
-        <iframe
-          src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
-          class="w-full h-full border-0"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Análisis de Fugas">
-        </iframe>
-      </div>
-    </div>
-  </div>
+     <div class="w-full h-[calc(85vh-85px)] p-2 sm:p-8 bg-gray-50/50">
+       <iframe
+         src="https://tally.so/r/3yL1V4?transparentBackground=1&hideTitle=1"
+         class="w-full h-full border-0 rounded-xl shadow-inner"
+         frameborder="0"
+         marginheight="0"
+         marginwidth="0"
+         title="Análisis de Fugas">
+       </iframe>
+     </div>
 
+   </div>
+ </div>
   <!-- JS Modal -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
