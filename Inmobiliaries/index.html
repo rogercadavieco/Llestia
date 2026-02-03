@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llestia Vallès | Automatització Immobiliària Intel·ligent</title>
+    <meta name="description" content="Automatitza la gestió de leads immobiliaris a Terrassa i el Vallès. Resposta immediata 24/7, qualificació i agenda automàtica.">
+    
+    <!-- Google Font "Inter" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-slate-100">
+        <div class="container mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+                    <i data-lucide="zap" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">Llestia <span class="text-blue-600">Vallès</span></span>
+            </div>
+            <a href="https://calendly.com/EL-TEU-ENLLAÇ" class="bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors">
+                Agendar Demo
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wide mb-6">
+                        Tecnologia Immobiliària al Vallès
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+                        La teva immobiliària dorm. <br>
+                        <span class="gradient-text">El teu Agent IA, no.</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 max-w-lg mx-auto lg:mx-0">
+                        Atèn leads d'Idealista, Fotocasa i Habitaclia en 0 segons. El sistema filtra curiosos, qualifica compradors i t'omple l'agenda de visites reals. sense que tu facis res.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://calendly.com/EL-TEU-ENLLAÇ" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all hover:scale-105 shadow-lg shadow-blue-600/20">
+                            Veure Demo (20')
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <div class="flex items-center gap-2 px-4 py-3 text-sm font-medium text-slate-500">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
+                            Integrat amb els teus portals
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 w-full relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 aspect-video lg:aspect-auto lg:h-[500px]">
+                        <img src="hero_real_estate_agent_automation_1770143662709.png" 
+                             alt="Automatització Immobiliària" 
+                             class="w-full h-full object-cover">
+                        
+                        <!-- Floating Card -->
+                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-xl border border-slate-100 max-w-xs animate-in slide-in-from-bottom-4 duration-1000">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+                                    <i data-lucide="message-circle" class="w-5 h-5 text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-400 uppercase mb-1">Nou Lead Qualificat</div>
+                                    <p class="text-sm font-bold text-slate-900">"Visita agendada pel c/Major, 45 (Terrassa) demà a les 10h"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-slate-900">Per què perds vendes avui?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Old Way -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm opacity-70 hover:opacity-100 transition-opacity">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="x-circle" class="w-6 h-6 text-red-500"></i>
+                        <h3 class="text-xl font-bold text-slate-700">Immobiliària Tradicional</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex gap-3">
+                            <i data-lucide="x" class="w-5 h-5 text-red-200 mt-0.5"></i>
+                            Resposts als leads hores o dies tard
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="x" class="w-5 h-5 text-red-200 mt-0.5"></i>
+                            Perds temps filtrant "turistes immobiliaris"
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="x" class="w-5 h-5 text-red-200 mt-0.5"></i>
+                            Agenda buida o amb visites no qualificades
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Llestia Way -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-blue-600 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">NOU ESTÀNDARD</div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-600"></i>
+                        <h3 class="text-xl font-bold text-slate-900">Amb Llestia Vallès</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-700 font-medium">
+                        <li class="flex gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                            Resposta immediata (24/7) per WhatsApp
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                            Qualificació automàtica (zona, pressupost, urgència)
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                            Visites agendades directament al teu calendari
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Validation -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                <div class="p-4">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-blue-600 mb-2">+30%</div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Visites Concertades</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-blue-600 mb-2 text-nowrap">< 2 min</div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Temps de Resposta</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-blue-600 mb-2">100%</div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Automatitzat</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">No perdis ni un client més al Vallès</h2>
+            <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+                La tecnologia per liderar el mercat local ja existeix. Només cal activar-la.
+            </p>
+            <a href="https://calendly.com/EL-TEU-ENLLAÇ" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
+                <i data-lucide="calendar-check"></i>
+                Reservar Demo Gratuïta (20 min)
+            </a>
+            <p class="mt-8 text-xs text-slate-500">Sense compromís. Implementació en menys de 15 dies.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-slate-100">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-80">
+                <i data-lucide="zap" class="w-4 h-4 text-blue-600"></i>
+                <span class="font-bold text-slate-900">Llestia Vallès</span>
+            </div>
+            <div class="text-sm text-slate-500">
+                &copy; 2024 Llestia Cataluña. Partner tecnològic per a immobiliàries.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
