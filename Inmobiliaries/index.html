@@ -38,10 +38,12 @@
                     Vallès
                 </span>
             </a>
-            <a href="https://calendly.com/EL-TEU-ENLLAÇ"
-                class="bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors">
-                Agendar Demo
-            </a>
+           <a href="https://wa.me/34XXXXXXXXX?text=Hola!%20He%20vist%20la%20web%20de%20Llestia%20i%20voldria%20més%20informació" 
+   target="_blank"
+   class="bg-green-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-green-500 transition-colors flex items-center gap-2">
+    <i data-lucide="message-circle" class="w-4 h-4"></i>
+    Consulta per WhatsApp
+</a>
         </div>
     </nav>
 
@@ -191,17 +193,27 @@
         </div>
     </section>
 
-    <section class="py-20 bg-slate-900 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">No perdis ni un client més al Vallès</h2>
-            <p class="text-slate-400 mb-10 max-w-xl mx-auto">La tecnologia per liderar el mercat local ja existeix. Només cal activar-la.</p>
+  <section class="py-20 bg-slate-900 text-white">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">No perdis ni un client més al Vallès</h2>
+        <p class="text-slate-400 mb-10 max-w-xl mx-auto">La tecnologia per liderar el mercat local ja existeix. Només cal activar-la.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="#"
-                    class="btn-demo inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
-                    <i data-lucide="calendar-check"></i>
-                    Veure Demo
-                </a>
+                class="btn-demo w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
+                <i data-lucide="play-circle" class="w-5 h-5"></i>
+                Veure Vídeo Demo
+            </a>
+
+            <a href="https://wa.me/34XXXXXXXXX?text=Hola!%20He%20vist%20el%20vídeo%20demo%20i%20vull%20automatitzar%20la%20meva%20immobiliària" 
+                target="_blank"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-green-900/50">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                Enviar WhatsApp
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="bg-white py-12 border-t border-slate-100">
         <div class="container mx-auto px-6">
@@ -260,5 +272,11 @@
         modal.addEventListener('click', (e) => { if (e.target === modal) tancarModal(); });
         document.addEventListener('keydown', (e) => { if (e.key === "Escape") tancarModal(); });
     </script>
+
+    <a href="https://wa.me/34606744230" 
+   target="_blank"
+   class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all flex items-center justify-center">
+    <i data-lucide="message-circle" class="w-8 h-8"></i>
+</a>
 </body>
 </html>
