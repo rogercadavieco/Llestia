@@ -60,11 +60,11 @@
                         Respon immediatament a cada consulta, filtra curiosos i agenda visites reals al teu calendari, encara que estiguis ensenyant un pis o fora de l’oficina.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="https://calendly.com/EL-TEU-ENLLAÇ"
-                            class="bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all hover:scale-105 shadow-lg shadow-blue-600/20">
-                            Veure Demo
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                       <a href="#"
+                        class="btn-demo bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all hover:scale-105 shadow-lg shadow-blue-600/20">
+                        Veure Demo
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
                     </div>
                 </div>
 
@@ -195,11 +195,11 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-6">No perdis ni un client més al Vallès</h2>
             <p class="text-slate-400 mb-10 max-w-xl mx-auto">La tecnologia per liderar el mercat local ja existeix. Només cal activar-la.</p>
-            <a href="https://calendly.com/EL-TEU-ENLLAÇ"
-                class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
-                <i data-lucide="calendar-check"></i>
-                Veure Demo
-            </a>
+            <a href="#"
+                    class="btn-demo inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
+                    <i data-lucide="calendar-check"></i>
+                    Veure Demo
+                </a>
         </div>
     </section>
 
@@ -222,7 +222,44 @@
         </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+<script>
+    lucide.createIcons();
+
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('videoPlayer');
+    const closeBtn = document.getElementById('closeModal');
+    const demoButtons = document.querySelectorAll('.btn-demo');
+
+    // Link de Vimeo optimizado
+    const videoURL = "https://player.vimeo.com/video/1168560018?autoplay=1"; 
+
+    demoButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            player.src = videoURL;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const tancarModal = () => {
+        modal.classList.add('hidden');
+        player.src = ""; 
+        document.body.style.overflow = 'auto';
+    };
+
+    closeBtn.addEventListener('click', tancarModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) tancarModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === "Escape") tancarModal(); });
+</script>
+    <div id="videoModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-900/90 backdrop-blur-sm p-4">
+    <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+        <button id="closeModal" class="absolute top-4 right-4 z-10 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 p-2 rounded-full transition-all">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <iframe id="videoPlayer" class="w-full h-full" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
 </body>
 
 </html>
