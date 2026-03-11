@@ -16,6 +16,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
     body {
@@ -27,6 +28,19 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .open-chat-btn {
+      white-space: nowrap;
+    }
+
+    .llestia-chat-btn {
+      background-color: #e11d48;
+      color: #fff;
+    }
+
+    .llestia-chat-btn:hover {
+      background-color: #be123c;
     }
 
     /* ---------- n8n chat custom ---------- */
@@ -67,15 +81,26 @@
       --chat--textarea--border: 1px solid #cbd5e1;
       --chat--textarea--border-radius: 12px;
 
-      --chat--toggle--background: #be123c;
-      --chat--toggle--hover--background: #e11d48;
+      --chat--toggle--background: #e11d48;
+      --chat--toggle--hover--background: #be123c;
       --chat--toggle--active--background: #9f1239;
       --chat--toggle--color: #ffffff;
       --chat--toggle--size: 64px;
     }
 
-    .open-chat-btn {
-      white-space: nowrap;
+    /* Intento de igualar aún más el botón flotante del widget */
+    n8n-chat,
+    .n8n-chat,
+    .n8n-chat-widget {
+      --chat--toggle--background: #e11d48 !important;
+      --chat--toggle--hover--background: #be123c !important;
+      --chat--toggle--active--background: #9f1239 !important;
+      --chat--toggle--color: #ffffff !important;
+    }
+
+    .n8n-chat-widget button,
+    .n8n-chat button {
+      border-radius: 9999px !important;
     }
   </style>
 </head>
@@ -90,7 +115,7 @@
       </a>
 
       <button
-        class="open-chat-btn bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-rose-600 transition-colors flex items-center gap-2 shadow-sm">
+        class="open-chat-btn llestia-chat-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 shadow-sm">
         <i data-lucide="bot" class="w-5 h-5"></i>
         <span>Parla amb l'assistent</span>
       </button>
@@ -316,7 +341,7 @@
         </a>
 
         <button
-          class="open-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose-700 hover:bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-rose-900/50">
+          class="open-chat-btn llestia-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg">
           <i data-lucide="bot" class="w-6 h-6"></i>
           <span>Parla amb l'assistent</span>
         </button>
@@ -342,112 +367,77 @@
     </div>
   </footer>
 
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
- <script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-  createChat({
-    webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
-    initialMessages: [
-      'Hola! Sóc l’assistent de Llestia 👋',
-      'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
-    ],
-    i18n: {
-      en: {
-        title: 'Assistent Llestia',
-        subtitle: 'Resol dubtes sobre la solució',
-        footer: '',
-        getStarted: 'Començar',
-        inputPlaceholder: 'Escriu la teva pregunta...'
+    createChat({
+      webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
+      initialMessages: [
+        'Hola! Sóc l’assistent de Llestia 👋',
+        'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
+      ],
+      i18n: {
+        en: {
+          title: 'Assistent Llestia',
+          subtitle: 'Resol dubtes sobre la solució',
+          footer: '',
+          getStarted: 'Començar',
+          inputPlaceholder: 'Escriu la teva pregunta...'
+        }
+      },
+      showWelcomeScreen: false,
+      metadata: {
+        source: 'landing-inmobiliaries',
+        lang: 'ca',
+        page: window.location.pathname
       }
-    },
-    showWelcomeScreen: false,
-    metadata: {
-      source: 'landing-inmobiliaries',
-      lang: 'ca',
-      page: window.location.pathname
-    }
-  });
+    });
 
-  function openN8nChat() {
-    const possibleButtons = [
-      '.n8n-chat-widget button',
-      '.n8n-chat button',
-      '.chat-window-toggle',
-      '.chat-button'
-    ];
+    function tryOpenChat() {
+      const host = document.querySelector('n8n-chat');
+      if (!host) return false;
 
-    for (const selector of possibleButtons) {
-      const btn = document.querySelector(selector);
-      if (btn) {
-        btn.click();
-        return;
-      }
-    }
-
-    const chatEl = document.querySelector('n8n-chat');
-    if (chatEl && chatEl.shadowRoot) {
-      for (const selector of possibleButtons) {
-        const btn = chatEl.shadowRoot.querySelector(selector);
-        if (btn) {
-          btn.click();
-          return;
+      if (host.shadowRoot) {
+        const buttons = host.shadowRoot.querySelectorAll('button');
+        if (buttons.length > 0) {
+          buttons[0].click();
+          return true;
         }
       }
+
+      const normalButtons = document.querySelectorAll('.n8n-chat-widget button, .n8n-chat button');
+      if (normalButtons.length > 0) {
+        normalButtons[0].click();
+        return true;
+      }
+
+      return false;
     }
 
-    console.warn("No s'ha trobat el botó del xat per obrir-lo.");
-  }
+    function openN8nChat() {
+      if (tryOpenChat()) return;
 
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.open-chat-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openN8nChat();
+      let tries = 0;
+      const interval = setInterval(() => {
+        tries++;
+        if (tryOpenChat() || tries > 30) {
+          clearInterval(interval);
+        }
+      }, 200);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.open-chat-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openN8nChat();
+        });
       });
     });
-  });
-</script>
-
-  <div id="videoModal" class="fixed inset-0 z-[70] hidden flex items-center justify-center bg-black/95 p-4">
-    <div
-      class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-      <button id="closeModal"
-        class="absolute top-4 right-4 z-20 text-white/50 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-      <iframe id="videoPlayer" class="w-full h-full" src="" frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
+  </script>
 
   <script>
     lucide.createIcons();
-
-    const modal = document.getElementById('videoModal');
-    const player = document.getElementById('videoPlayer');
-    const closeBtn = document.getElementById('closeModal');
-    const demoButtons = document.querySelectorAll('.btn-demo');
-    const videoURL = "https://player.vimeo.com/video/1170244773?autoplay=1&title=0&byline=0&portrait=0&badge=0";
-
-    demoButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        player.src = videoURL;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    const tancarModal = () => {
-      modal.classList.add('hidden');
-      player.src = "";
-      document.body.style.overflow = 'auto';
-    };
-
-    closeBtn.addEventListener('click', tancarModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) tancarModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === "Escape") tancarModal(); });
   </script>
 </body>
 
