@@ -367,74 +367,74 @@
     </div>
   </footer>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+ <script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-    createChat({
-      webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
-      initialMessages: [
-        'Hola! Sóc l’assistent de Llestia 👋',
-        'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
-      ],
-      i18n: {
-        en: {
-          title: 'Assistent Llestia',
-          subtitle: 'Resol dubtes sobre la solució',
-          footer: '',
-          getStarted: 'Començar',
-          inputPlaceholder: 'Escriu la teva pregunta...'
-        }
-      },
-      showWelcomeScreen: false,
-      metadata: {
-        source: 'landing-inmobiliaries',
-        lang: 'ca',
-        page: window.location.pathname
+  createChat({
+    webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
+    initialMessages: [
+      'Hola! Sóc l’assistent de Llestia 👋',
+      'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
+    ],
+    i18n: {
+      en: {
+        title: 'Assistent Llestia',
+        subtitle: 'Resol dubtes sobre la solució',
+        footer: '',
+        getStarted: 'Començar',
+        inputPlaceholder: 'Escriu la teva pregunta...'
       }
-    });
+    },
+    showWelcomeScreen: false,
+    metadata: {
+      source: 'landing-inmobiliaries',
+      lang: 'ca',
+      page: window.location.pathname
+    }
+  });
 
-    function tryOpenChat() {
-      const host = document.querySelector('n8n-chat');
-      if (!host) return false;
+  function tryOpenChat() {
+    const host = document.querySelector('n8n-chat');
+    if (!host) return false;
 
-      if (host.shadowRoot) {
-        const buttons = host.shadowRoot.querySelectorAll('button');
-        if (buttons.length > 0) {
-          buttons[0].click();
-          return true;
-        }
-      }
-
-      const normalButtons = document.querySelectorAll('.n8n-chat-widget button, .n8n-chat button');
-      if (normalButtons.length > 0) {
-        normalButtons[0].click();
+    if (host.shadowRoot) {
+      const buttons = host.shadowRoot.querySelectorAll('button');
+      if (buttons.length > 0) {
+        buttons[0].click();
         return true;
       }
-
-      return false;
     }
 
-    function openN8nChat() {
-      if (tryOpenChat()) return;
-
-      let tries = 0;
-      const interval = setInterval(() => {
-        tries++;
-        if (tryOpenChat() || tries > 30) {
-          clearInterval(interval);
-        }
-      }, 200);
+    const normalButtons = document.querySelectorAll('.n8n-chat-widget button, .n8n-chat button');
+    if (normalButtons.length > 0) {
+      normalButtons[0].click();
+      return true;
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.open-chat-btn').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          openN8nChat();
-        });
+    return false;
+  }
+
+  function openN8nChat() {
+    if (tryOpenChat()) return;
+
+    let tries = 0;
+    const interval = setInterval(() => {
+      tries++;
+      if (tryOpenChat() || tries > 30) {
+        clearInterval(interval);
+      }
+    }, 200);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.open-chat-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openN8nChat();
       });
     });
-  </script>
+  });
+</script>
 
   <script>
     lucide.createIcons();
