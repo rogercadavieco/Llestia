@@ -42,22 +42,23 @@
     .llestia-chat-btn:hover {
       background-color: #be123c;
     }
-/* ---------- modal del chat ---------- */
-     #chatModal.hidden {
-    display: none;
-  }
 
-  #chatModal {
-    display: flex;
-  }
+    #chatModal.hidden {
+      display: none;
+    }
 
-  #llestia-chat {
-    width: 100%;
-    height: 100%;
-    min-height: 620px;
-  }
+    #chatModal {
+      display: flex;
+    }
 
-    /* ---------- n8n chat custom ---------- */
+    #llestia-chat {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+    }
+
+    /* Estil del chat incrustat en el modal */
+    #llestia-chat,
     :root {
       --chat--color-primary: #2563eb;
       --chat--color-primary-shade-50: #1d4ed8;
@@ -75,7 +76,7 @@
       --chat--border-radius: 18px;
       --chat--transition-duration: 0.2s;
 
-      --chat--window--width: 400px;
+      --chat--window--width: 100%;
       --chat--window--height: 620px;
 
       --chat--header-height: 84px;
@@ -94,27 +95,14 @@
       --chat--textarea--background: #ffffff;
       --chat--textarea--border: 1px solid #cbd5e1;
       --chat--textarea--border-radius: 12px;
-
-      --chat--toggle--background: #e11d48;
-      --chat--toggle--hover--background: #be123c;
-      --chat--toggle--active--background: #9f1239;
-      --chat--toggle--color: #ffffff;
-      --chat--toggle--size: 64px;
     }
 
-    /* Intento de igualar aún más el botón flotante del widget */
-    n8n-chat,
-    .n8n-chat,
-    .n8n-chat-widget {
-      --chat--toggle--background: #e11d48 !important;
-      --chat--toggle--hover--background: #be123c !important;
-      --chat--toggle--active--background: #9f1239 !important;
-      --chat--toggle--color: #ffffff !important;
-    }
-
-    .n8n-chat-widget button,
-    .n8n-chat button {
-      border-radius: 9999px !important;
+    /* Oculta el widget flotante de n8n para que no interfiera */
+    .n8n-chat-widget,
+    .n8n-chat-window-toggle,
+    .n8n-chat-toggle,
+    .n8n-chat-launcher {
+      display: none !important;
     }
   </style>
 </head>
@@ -320,7 +308,6 @@
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -381,74 +368,114 @@
     </div>
   </footer>
 
- <script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  <div id="chatModal" class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/70 p-4">
+    <div class="relative w-full max-w-5xl bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+      <button id="closeChatModal"
+        class="absolute top-4 right-4 z-20 text-slate-400 hover:text-slate-900 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
 
-  createChat({
-    webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
-    initialMessages: [
-      'Hola! Sóc l’assistent de Llestia 👋',
-      'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
-    ],
-    i18n: {
-      en: {
-        title: 'Assistent Llestia',
-        subtitle: 'Resol dubtes sobre la solució',
-        footer: '',
-        getStarted: 'Començar',
-        inputPlaceholder: 'Escriu la teva pregunta...'
+      <div class="grid lg:grid-cols-[1fr_1.2fr] min-h-[620px]">
+        <div class="bg-slate-50 border-r border-slate-200 p-8 flex flex-col justify-center">
+          <div
+            class="inline-flex items-center justify-center w-12 h-12 bg-rose-600 rounded-xl mb-6 shadow-lg shadow-rose-600/20">
+            <i data-lucide="bot" class="w-6 h-6 text-white"></i>
+          </div>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Parla amb l’assistent</h2>
+          <p class="text-slate-600 text-lg leading-relaxed mb-6">
+            Resol dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.
+          </p>
+          <ul class="space-y-3 text-slate-600">
+            <li class="flex gap-3 items-start">
+              <i data-lucide="check" class="w-5 h-5 text-blue-600 mt-1 shrink-0"></i>
+              <span>Resposta immediata</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <i data-lucide="check" class="w-5 h-5 text-blue-600 mt-1 shrink-0"></i>
+              <span>Dubtes resolts dins la mateixa pàgina</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <i data-lucide="check" class="w-5 h-5 text-blue-600 mt-1 shrink-0"></i>
+              <span>Després pots provar la demo real per WhatsApp</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-0">
+          <div id="llestia-chat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    const chatModal = document.getElementById('chatModal');
+    const closeChatModal = document.getElementById('closeChatModal');
+
+    let chatMounted = false;
+
+    function openChatModal() {
+      chatModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      if (!chatMounted) {
+        createChat({
+          webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
+          target: '#llestia-chat',
+          mode: 'fullscreen',
+          initialMessages: [
+            'Hola! Sóc l’assistent de Llestia 👋',
+            'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
+          ],
+          i18n: {
+            en: {
+              title: 'Assistent Llestia',
+              subtitle: 'Resol dubtes sobre la solució',
+              footer: '',
+              getStarted: 'Començar',
+              inputPlaceholder: 'Escriu la teva pregunta...'
+            }
+          },
+          showWelcomeScreen: false,
+          metadata: {
+            source: 'landing-inmobiliaries',
+            lang: 'ca',
+            page: window.location.pathname
+          }
+        });
+
+        chatMounted = true;
       }
-    },
-    showWelcomeScreen: false,
-    metadata: {
-      source: 'landing-inmobiliaries',
-      lang: 'ca',
-      page: window.location.pathname
-    }
-  });
-
-  function tryOpenChat() {
-    const host = document.querySelector('n8n-chat');
-    if (!host) return false;
-
-    if (host.shadowRoot) {
-      const buttons = host.shadowRoot.querySelectorAll('button');
-      if (buttons.length > 0) {
-        buttons[0].click();
-        return true;
-      }
     }
 
-    const normalButtons = document.querySelectorAll('.n8n-chat-widget button, .n8n-chat button');
-    if (normalButtons.length > 0) {
-      normalButtons[0].click();
-      return true;
+    function closeChat() {
+      chatModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
     }
 
-    return false;
-  }
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.open-chat-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openChatModal();
+        });
+      });
 
-  function openN8nChat() {
-    if (tryOpenChat()) return;
+      closeChatModal.addEventListener('click', closeChat);
 
-    let tries = 0;
-    const interval = setInterval(() => {
-      tries++;
-      if (tryOpenChat() || tries > 30) {
-        clearInterval(interval);
-      }
-    }, 200);
-  }
+      chatModal.addEventListener('click', (e) => {
+        if (e.target === chatModal) closeChat();
+      });
 
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.open-chat-btn').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openN8nChat();
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !chatModal.classList.contains('hidden')) {
+          closeChat();
+        }
       });
     });
-  });
-</script>
+  </script>
 
   <script>
     lucide.createIcons();
