@@ -68,8 +68,8 @@
       --chat--textarea--border-radius: 12px;
 
       --chat--toggle--background: #be123c;
-      --chat--toggle--hover--background: #9f1239;
-      --chat--toggle--active--background: #881337;
+      --chat--toggle--hover--background: #e11d48;
+      --chat--toggle--active--background: #9f1239;
       --chat--toggle--color: #ffffff;
       --chat--toggle--size: 64px;
     }
@@ -91,7 +91,7 @@
 
       <button
         class="open-chat-btn bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-rose-600 transition-colors flex items-center gap-2 shadow-sm">
-        <i data-lucide="bot" class="w-4 h-4"></i>
+        <i data-lucide="bot" class="w-5 h-5"></i>
         <span>Parla amb l'assistent</span>
       </button>
     </div>
@@ -317,7 +317,7 @@
 
         <button
           class="open-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose-700 hover:bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-rose-900/50">
-          <i data-lucide="bot" class="w-5 h-5"></i>
+          <i data-lucide="bot" class="w-6 h-6"></i>
           <span>Parla amb l'assistent</span>
         </button>
       </div>
@@ -343,53 +343,71 @@
   </footer>
 
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+ <script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-    const chat = createChat({
-      webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
-      initialMessages: [
-        'Hola! Sóc l’assistent de Llestia 👋',
-        'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
-      ],
-      i18n: {
-        en: {
-          title: 'Assistent Llestia',
-          subtitle: 'Resol dubtes sobre la solució',
-          footer: '',
-          getStarted: 'Començar',
-          inputPlaceholder: 'Escriu la teva pregunta...'
-        }
-      },
-      showWelcomeScreen: false,
-      metadata: {
-        source: 'landing-inmobiliaries',
-        lang: 'ca',
-        page: window.location.pathname
+  createChat({
+    webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
+    initialMessages: [
+      'Hola! Sóc l’assistent de Llestia 👋',
+      'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
+    ],
+    i18n: {
+      en: {
+        title: 'Assistent Llestia',
+        subtitle: 'Resol dubtes sobre la solució',
+        footer: '',
+        getStarted: 'Començar',
+        inputPlaceholder: 'Escriu la teva pregunta...'
       }
-    });
+    },
+    showWelcomeScreen: false,
+    metadata: {
+      source: 'landing-inmobiliaries',
+      lang: 'ca',
+      page: window.location.pathname
+    }
+  });
 
+  function openN8nChat() {
+    const possibleButtons = [
+      '.n8n-chat-widget button',
+      '.n8n-chat button',
+      '.chat-window-toggle',
+      '.chat-button'
+    ];
+
+    for (const selector of possibleButtons) {
+      const btn = document.querySelector(selector);
+      if (btn) {
+        btn.click();
+        return;
+      }
+    }
+
+    const chatEl = document.querySelector('n8n-chat');
+    if (chatEl && chatEl.shadowRoot) {
+      for (const selector of possibleButtons) {
+        const btn = chatEl.shadowRoot.querySelector(selector);
+        if (btn) {
+          btn.click();
+          return;
+        }
+      }
+    }
+
+    console.warn("No s'ha trobat el botó del xat per obrir-lo.");
+  }
+
+  window.addEventListener('load', () => {
     document.querySelectorAll('.open-chat-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        try {
-          if (chat && typeof chat.open === 'function') {
-            chat.open();
-          } else if (chat && typeof chat.toggle === 'function') {
-            chat.toggle();
-          } else {
-            const chatEl = document.querySelector('n8n-chat');
-            if (chatEl && chatEl.shadowRoot) {
-              const chatBtn = chatEl.shadowRoot.querySelector('.chat-button');
-              if (chatBtn) chatBtn.click();
-            }
-          }
-        } catch (error) {
-          console.error("No s'ha pogut obrir el xat", error);
-        }
+        openN8nChat();
       });
     });
-  </script>
+  });
+</script>
 
   <div id="videoModal" class="fixed inset-0 z-[70] hidden flex items-center justify-center bg-black/95 p-4">
     <div
