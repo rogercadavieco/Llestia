@@ -40,9 +40,11 @@
         <span class="text-xl font-bold tracking-tight border-l border-slate-200 pl-3 text-slate-900">Vallès</span>
       </a>
 
-      <div class="text-sm font-medium text-slate-600 hidden sm:block">
-        Parla amb l'assistent i resol els teus dubtes.
-      </div>
+      <button
+        class="open-chat-btn bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-rose-600 transition-colors text-left flex items-center gap-2 shadow-sm">
+        <i data-lucide="bot" class="w-5 h-5"></i>
+        <span class="leading-tight text-xs">Tens dubtes?<br>Parla amb l'assistent.</span>
+      </button>
     </div>
   </nav>
 
@@ -264,11 +266,11 @@
           Provar demo
         </a>
 
-        <a href="/Inmobiliaries/whatsapp/" target="_blank" rel="noopener"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-green-900/50">
-          <i data-lucide="message-circle" class="w-5 h-5"></i>
-          Enviar WhatsApp
-        </a>
+        <button
+          class="open-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-rose-700 hover:bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-left transition-all shadow-lg hover:shadow-rose-900/50">
+          <i data-lucide="bot" class="w-6 h-6"></i>
+          <span class="leading-tight text-base font-semibold">Tens dubtes?<br>Parla amb l'assistent.</span>
+        </button>
       </div>
     </div>
   </section>
@@ -295,8 +297,29 @@
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-    createChat({
+    const chat = createChat({
       webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat'
+    });
+
+    document.querySelectorAll('.open-chat-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        try {
+          if (chat && typeof chat.open === 'function') {
+            chat.open();
+          } else if (chat && typeof chat.toggle === 'function') {
+            chat.toggle();
+          } else {
+            const chatEl = document.querySelector('n8n-chat');
+            if (chatEl && chatEl.shadowRoot) {
+              const chatBtn = chatEl.shadowRoot.querySelector('.chat-button');
+              if (chatBtn) chatBtn.click();
+            }
+          }
+        } catch (error) {
+          console.error("No s'ha pogut obrir el xat", error);
+        }
+      });
     });
   </script>
 
