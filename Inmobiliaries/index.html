@@ -28,6 +28,55 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    /* ---------- n8n chat custom ---------- */
+    :root {
+      --chat--color-primary: #2563eb;
+      --chat--color-primary-shade-50: #1d4ed8;
+      --chat--color-secondary: #0f172a;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #f8fafc;
+      --chat--color-light-shade-50: #e2e8f0;
+      --chat--color-light-shade-100: #cbd5e1;
+      --chat--color-medium: #64748b;
+      --chat--color-dark: #0f172a;
+      --chat--color-disabled: #94a3b8;
+      --chat--color-typing: #475569;
+
+      --chat--spacing: 1rem;
+      --chat--border-radius: 18px;
+      --chat--transition-duration: 0.2s;
+
+      --chat--window--width: 400px;
+      --chat--window--height: 620px;
+
+      --chat--header-height: 84px;
+      --chat--header--padding: 20px;
+      --chat--header--background: #0f172a;
+      --chat--header--color: #ffffff;
+
+      --chat--heading--font-size: 1.25rem;
+      --chat--subtitle--font-size: 0.92rem;
+      --chat--message--font-size: 0.95rem;
+      --chat--message--padding: 14px 16px;
+      --chat--message--border-radius: 14px;
+      --chat--message-line-height: 1.6;
+
+      --chat--textarea--height: 56px;
+      --chat--textarea--background: #ffffff;
+      --chat--textarea--border: 1px solid #cbd5e1;
+      --chat--textarea--border-radius: 12px;
+
+      --chat--toggle--background: #be123c;
+      --chat--toggle--hover--background: #9f1239;
+      --chat--toggle--active--background: #881337;
+      --chat--toggle--color: #ffffff;
+      --chat--toggle--size: 64px;
+    }
+
+    .open-chat-btn {
+      white-space: nowrap;
+    }
   </style>
 </head>
 
@@ -41,9 +90,9 @@
       </a>
 
       <button
-        class="open-chat-btn bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-rose-600 transition-colors text-left flex items-center gap-2 shadow-sm">
-        <i data-lucide="bot" class="w-5 h-5"></i>
-        <span class="leading-tight text-xs">Tens dubtes?<br>Parla amb l'assistent.</span>
+        class="open-chat-btn bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-rose-600 transition-colors flex items-center gap-2 shadow-sm">
+        <i data-lucide="bot" class="w-4 h-4"></i>
+        <span>Parla amb l'assistent</span>
       </button>
     </div>
   </nav>
@@ -267,9 +316,9 @@
         </a>
 
         <button
-          class="open-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-rose-700 hover:bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-left transition-all shadow-lg hover:shadow-rose-900/50">
-          <i data-lucide="bot" class="w-6 h-6"></i>
-          <span class="leading-tight text-base font-semibold">Tens dubtes?<br>Parla amb l'assistent.</span>
+          class="open-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose-700 hover:bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-rose-900/50">
+          <i data-lucide="bot" class="w-5 h-5"></i>
+          <span>Parla amb l'assistent</span>
         </button>
       </div>
     </div>
@@ -298,7 +347,26 @@
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     const chat = createChat({
-      webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat'
+      webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
+      initialMessages: [
+        'Hola! Sóc l’assistent de Llestia 👋',
+        'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
+      ],
+      i18n: {
+        en: {
+          title: 'Assistent Llestia',
+          subtitle: 'Resol dubtes sobre la solució',
+          footer: '',
+          getStarted: 'Començar',
+          inputPlaceholder: 'Escriu la teva pregunta...'
+        }
+      },
+      showWelcomeScreen: false,
+      metadata: {
+        source: 'landing-inmobiliaries',
+        lang: 'ca',
+        page: window.location.pathname
+      }
     });
 
     document.querySelectorAll('.open-chat-btn').forEach(btn => {
