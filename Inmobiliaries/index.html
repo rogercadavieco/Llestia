@@ -16,7 +16,6 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
     body {
@@ -30,79 +29,14 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .open-chat-btn {
+    .whatsapp-btn {
+      background-color: #e11d48;
+      color: #fff;
       white-space: nowrap;
     }
 
-    .llestia-chat-btn {
-      background-color: #e11d48;
-      color: #fff;
-    }
-
-    .llestia-chat-btn:hover {
+    .whatsapp-btn:hover {
       background-color: #be123c;
-    }
-
-    #chatPanel.hidden,
-    #demoModal.hidden {
-      display: none;
-    }
-
-    #chatPanel,
-    #demoModal {
-      display: block;
-    }
-
-    #llestia-chat {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-    }
-
-    #llestia-chat,
-    :root {
-      --chat--color-primary: #2563eb;
-      --chat--color-primary-shade-50: #1d4ed8;
-      --chat--color-secondary: #0f172a;
-      --chat--color-white: #ffffff;
-      --chat--color-light: #f8fafc;
-      --chat--color-light-shade-50: #e2e8f0;
-      --chat--color-light-shade-100: #cbd5e1;
-      --chat--color-medium: #64748b;
-      --chat--color-dark: #0f172a;
-      --chat--color-disabled: #94a3b8;
-      --chat--color-typing: #475569;
-
-      --chat--spacing: 1rem;
-      --chat--border-radius: 18px;
-      --chat--transition-duration: 0.2s;
-
-      --chat--window--width: 100%;
-      --chat--window--height: 100%;
-
-      --chat--header-height: 84px;
-      --chat--header--padding: 20px;
-      --chat--header--background: #0f172a;
-      --chat--header--color: #ffffff;
-
-      --chat--heading--font-size: 1.25rem;
-      --chat--subtitle--font-size: 0.92rem;
-      --chat--message--font-size: 0.95rem;
-      --chat--message--padding: 14px 16px;
-      --chat--message--border-radius: 14px;
-      --chat--message-line-height: 1.6;
-
-      --chat--textarea--height: 56px;
-      --chat--textarea--background: #ffffff;
-      --chat--textarea--border: 1px solid #cbd5e1;
-      --chat--textarea--border-radius: 12px;
-    }
-
-    .n8n-chat-widget,
-    .n8n-chat-window-toggle,
-    .n8n-chat-toggle,
-    .n8n-chat-launcher {
-      display: none !important;
     }
   </style>
 </head>
@@ -116,11 +50,12 @@
         <span class="text-xl font-bold tracking-tight border-l border-slate-200 pl-3 text-slate-900">Vallès</span>
       </a>
 
-      <button
-        class="open-chat-btn llestia-chat-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 shadow-sm">
-        <i data-lucide="bot" class="w-5 h-5"></i>
+      <a
+        href="/Inmobiliaries/whatsapp/"
+        class="whatsapp-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 shadow-sm">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
         <span>Parla amb l'assistent</span>
-      </button>
+      </a>
     </div>
   </nav>
 
@@ -144,11 +79,12 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button
-              class="open-demo-modal bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all hover:scale-105 shadow-lg shadow-blue-600/20">
+            <a
+              href="/Inmobiliaries/whatsapp/"
+              class="bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold inline-flex items-center justify-center gap-2 hover:bg-blue-700 transition-all hover:scale-105 shadow-lg shadow-blue-600/20">
               Provar demo
               <i data-lucide="message-circle" class="w-4 h-4"></i>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -335,17 +271,19 @@
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button
-          class="open-demo-modal w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
+        <a
+          href="/Inmobiliaries/whatsapp/"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-900/50">
           <i data-lucide="message-circle" class="w-5 h-5"></i>
           Provar demo
-        </button>
+        </a>
 
-        <button
-          class="open-chat-btn llestia-chat-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg">
-          <i data-lucide="bot" class="w-6 h-6"></i>
+        <a
+          href="/Inmobiliaries/whatsapp/"
+          class="whatsapp-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
           <span>Parla amb l'assistent</span>
-        </button>
+        </a>
       </div>
     </div>
   </section>
@@ -367,201 +305,6 @@
       </div>
     </div>
   </footer>
-
-  <div id="chatPanel" class="fixed top-20 right-4 z-[80] hidden w-full max-w-[460px] h-[80vh]">
-    <div class="relative h-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-      <button id="closeChatPanel"
-        class="absolute top-4 right-4 z-20 text-slate-400 hover:text-slate-900 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-
-      <div class="h-full">
-        <div id="llestia-chat"></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="demoModal" class="fixed inset-0 z-[90] hidden bg-slate-900/70 p-4">
-    <div class="min-h-full flex items-center justify-center">
-      <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
-        <div class="p-6 md:p-8">
-          <div class="flex items-start justify-between gap-4 mb-6">
-            <div>
-              <div
-                class="inline-flex items-center justify-center w-12 h-12 bg-blue-600 rounded-xl mb-4 shadow-lg shadow-blue-600/20">
-                <i data-lucide="mail-check" class="w-6 h-6 text-white"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 mb-2">Abans de provar la demo</h3>
-              <p class="text-slate-600">
-                Deixa el teu correu i després t’enviarem un exemple de com arribaria aquesta conversa resumida al teu
-                equip comercial.
-              </p>
-            </div>
-
-            <button id="closeDemoModal"
-              class="shrink-0 text-slate-400 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-all">
-              <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-          </div>
-
-          <form id="demoForm" class="space-y-4">
-            <div>
-              <label for="demoEmail" class="block text-sm font-semibold text-slate-800 mb-2">
-                Correu electrònic <span class="text-red-500">*</span>
-              </label>
-              <input id="demoEmail" name="email" type="email" required
-                placeholder="tu@immobiliaria.cat"
-                class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-            </div>
-
-            <div>
-              <label for="demoName" class="block text-sm font-semibold text-slate-800 mb-2">
-                Nom
-              </label>
-              <input id="demoName" name="name" type="text"
-                placeholder="Roger"
-                class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-            </div>
-
-            <div>
-              <label for="demoCompany" class="block text-sm font-semibold text-slate-800 mb-2">
-                Immobiliària
-              </label>
-              <input id="demoCompany" name="company" type="text"
-                placeholder="Nom de la immobiliària"
-                class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-            </div>
-
-            <div class="pt-2">
-              <button type="submit"
-                class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-xl font-bold transition-all shadow-lg shadow-blue-600/20">
-                Continuar a WhatsApp
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-            </div>
-
-            <p class="text-xs text-slate-500 leading-relaxed">
-              En aquesta versió, les dades es guarden temporalment al navegador abans d’obrir la demo. Quan vulguis, et
-              preparo el webhook de n8n per enviar-ho directament al teu sistema.
-            </p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-    const chatPanel = document.getElementById('chatPanel');
-    const closeChatPanel = document.getElementById('closeChatPanel');
-
-    const demoModal = document.getElementById('demoModal');
-    const closeDemoModal = document.getElementById('closeDemoModal');
-    const demoForm = document.getElementById('demoForm');
-
-    let chatMounted = false;
-
-    function openChatPanel() {
-      chatPanel.classList.remove('hidden');
-
-      if (!chatMounted) {
-        createChat({
-          webhookUrl: 'https://n8n.rogercadavieco.com/webhook/ee6b3df2-22c3-4380-844e-bd1b1e3dc830/chat',
-          target: '#llestia-chat',
-          mode: 'fullscreen',
-          initialMessages: [
-            'Hola! Sóc l’assistent de Llestia 👋',
-            'Et puc ajudar amb dubtes sobre el funcionament, el preu, la demo o si aquesta solució encaixa amb la teva immobiliària.'
-          ],
-          i18n: {
-            en: {
-              title: 'Assistent Llestia',
-              subtitle: 'Resol dubtes sobre la solució',
-              footer: '',
-              getStarted: 'Començar',
-              inputPlaceholder: 'Escriu la teva pregunta...'
-            }
-          },
-          showWelcomeScreen: false,
-          metadata: {
-            source: 'landing-inmobiliaries',
-            lang: 'ca',
-            page: window.location.pathname
-          }
-        });
-
-        chatMounted = true;
-      }
-    }
-
-    function closeChat() {
-      chatPanel.classList.add('hidden');
-    }
-
-    function openDemoModal() {
-      demoModal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDemo() {
-      demoModal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.open-chat-btn').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          openChatPanel();
-        });
-      });
-
-      document.querySelectorAll('.open-demo-modal').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          openDemoModal();
-        });
-      });
-
-      closeChatPanel.addEventListener('click', closeChat);
-      closeDemoModal.addEventListener('click', closeDemo);
-
-      demoModal.addEventListener('click', (e) => {
-        if (e.target === demoModal) closeDemo();
-      });
-
-      demoForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = {
-          email: document.getElementById('demoEmail').value.trim(),
-          name: document.getElementById('demoName').value.trim(),
-          company: document.getElementById('demoCompany').value.trim(),
-          createdAt: new Date().toISOString(),
-          source: 'landing-demo-modal'
-        };
-
-        localStorage.setItem('llestia_demo_lead', JSON.stringify(formData));
-
-        // Aquí puedes sustituir esto por un fetch a tu webhook de n8n
-        await fetch('https://n8n.rogercadavieco.com/webhook/06845a9e-e96a-4d9a-b82a-c6bb72053a10', {
-           method: 'POST',
-           headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify(formData)
-         });
-
-        window.location.href = '/Inmobiliaries/whatsapp/';
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          if (!chatPanel.classList.contains('hidden')) closeChat();
-          if (!demoModal.classList.contains('hidden')) closeDemo();
-        }
-      });
-    });
-  </script>
 
   <script>
     lucide.createIcons();
