@@ -248,73 +248,17 @@
       position: relative;
       display: grid;
       place-items: center;
+      isolation: isolate;
     }
 
-    .flow-orbit {
-      width: min(100%, 440px);
-      aspect-ratio: 1;
-      position: relative;
-      border: 1px solid rgba(23, 105, 224, .15);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #fff 0 31%, transparent 32%),
-        conic-gradient(from 210deg, rgba(23, 105, 224, .04), rgba(23, 105, 224, .18), rgba(23, 105, 224, .04));
-      box-shadow: inset 0 0 80px rgba(23, 105, 224, .06), var(--shadow);
+    .hero-illustration {
+      width: min(720px, 150%);
+      max-width: none;
+      height: auto;
+      display: block;
+      transform: translateX(-3%);
+      filter: drop-shadow(0 28px 42px rgba(31, 86, 151, .12));
     }
-
-    .flow-orbit::before {
-      content: "";
-      position: absolute;
-      inset: 16%;
-      border: 1px dashed rgba(23, 105, 224, .24);
-      border-radius: 50%;
-    }
-
-    .orbit-center {
-      position: absolute;
-      inset: 34%;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border-radius: 50%;
-      color: var(--white);
-      background: linear-gradient(145deg, #2b83f1, #0b54bd);
-      box-shadow: 0 20px 45px rgba(14, 88, 189, .28);
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.25;
-    }
-
-    .orbit-label {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 15px;
-      border: 1px solid rgba(23, 105, 224, .12);
-      border-radius: 999px;
-      color: #31506f;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 12px 28px rgba(31, 86, 151, .1);
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .orbit-label::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 0 5px var(--blue-soft);
-    }
-
-    .orbit-label:nth-of-type(1) { top: 8%; left: 11%; }
-    .orbit-label:nth-of-type(2) { top: 25%; right: -2%; }
-    .orbit-label:nth-of-type(3) { bottom: 18%; right: 2%; }
-    .orbit-label:nth-of-type(4) { bottom: 8%; left: 9%; }
-    .orbit-label:nth-of-type(5) { top: 38%; left: -8%; }
 
     .start-band {
       position: relative;
@@ -965,7 +909,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 50px; }
       .hero-copy { max-width: 720px; }
       .hero-visual { min-height: auto; }
-      .flow-orbit { width: min(86vw, 430px); }
+      .hero-illustration { width: min(760px, 112%); transform: translateX(-4%); }
       .band-inner { grid-template-columns: 1fr 1fr; padding: 30px 0; }
       .band-title { grid-column: 1 / -1; }
       .diagnosis-grid { grid-template-columns: 1fr; gap: 42px; }
@@ -992,8 +936,7 @@
       .hero-copy { font-size: 18px; }
       .hero-actions { align-items: flex-start; flex-direction: column; }
       .hero-visual { overflow: hidden; margin-inline: -15px; }
-      .flow-orbit { transform: scale(.87); }
-      .orbit-label { font-size: 11px; padding: 9px 12px; }
+      .hero-illustration { width: 118%; transform: translateX(-8%); }
       .band-inner { grid-template-columns: 1fr; gap: 24px; padding: 34px 8px; }
       .band-title { grid-column: auto; }
       .band-item { min-height: 0; padding: 17px 0; border: 0; border-top: 1px solid rgba(255,255,255,.3); border-radius: 0; }
@@ -1063,15 +1006,17 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="De tareas dispersas a un proceso coordinado">
-          <div class="flow-orbit" aria-hidden="true">
-            <div class="orbit-center">Proceso<br>más fluido</div>
-            <span class="orbit-label">Datos conectados</span>
-            <span class="orbit-label">Menos tareas manuales</span>
-            <span class="orbit-label">Excepciones visibles</span>
-            <span class="orbit-label">Equipo enfocado</span>
-            <span class="orbit-label">Seguimiento claro</span>
-          </div>
+        <div class="hero-visual">
+          <img
+            class="hero-illustration"
+            src="assets/llestia-hero-process-v1.png"
+            width="1536"
+            height="1024"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            alt="Flujo automatizado que conecta correos, documentos y agenda con archivos, alertas y acciones completadas."
+          >
         </div>
       </div>
     </section>
