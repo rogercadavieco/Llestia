@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cuéntanos qué proceso está frenando tu negocio y recibe una primera orientación gratuita sobre qué podrías mejorar o automatizar.">
+  <title>Analista de Fugas | Llestia</title>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      color: #17212f;
+      background: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #2563eb;
+      text-underline-offset: 4px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    .header {
+      background: #fff;
+      border-bottom: 1px solid #e5eaf1;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: auto;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: block;
+      width: auto;
+      height: 32px;
+    }
+
+    .back {
+      color: #475569;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      padding: 48px 24px 64px;
+    }
+
+    .intro {
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    .description {
+      max-width: 650px;
+      margin: 0;
+      color: #475569;
+      font-size: 17px;
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .details li::before {
+      content: "✓";
+      color: #2563eb;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .form-card {
+      background: #fff;
+      border: 1px solid #e5eaf1;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(23, 33, 47, .04);
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+    }
+
+    .fallback {
+      margin: 22px 0 0;
+      text-align: center;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .note {
+      max-width: 700px;
+      margin: 24px auto 0;
+      color: #64748b;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid #e5eaf1;
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    footer a {
+      color: #475569;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        padding: 18px 20px;
+      }
+
+      .logo {
+        height: 27px;
+      }
+
+      main {
+        padding: 32px 16px 40px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .form-card {
+        padding: 18px 12px;
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" aria-label="Llestia: volver al inicio">
+        <img
+          class="logo"
+          src="assets/llestia-logo.svg"
+          alt="Llestia"
+        >
+      </a>
+
+      <a class="back" href="index.html">← Volver al inicio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Analista de Fugas</p>
+
+      <h1 id="page-title">¿Qué proceso te está frenando?</h1>
+
+      <p class="description">
+        Cuéntanos qué ocurre en tu negocio. Recibirás por correo
+        una primera orientación sobre qué podrías mejorar o automatizar.
+      </p>
+
+      <ul class="details">
+        <li>Unos dos minutos</li>
+        <li>Gratis y sin compromiso</li>
+        <li>No necesitas conocimientos técnicos</li>
+      </ul>
+    </section>
+
+    <section
+      class="form-card"
+      aria-label="Formulario del Analista de Fugas"
+    >
+      <iframe
+        src="https://tally.so/embed/VL2MAl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        data-tally-src="https://tally.so/embed/VL2MAl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        width="100%"
+        height="1100"
+        title="Analista de Fugas: cuéntanos qué proceso quieres mejorar"
+      ></iframe>
+
+      <p class="fallback">
+        ¿No ves el formulario?
+        <a
+          href="https://tally.so/r/VL2MAl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Ábrelo directamente en Tally ↗</a>
+      </p>
+    </section>
+
+    <p class="note">
+      Esta primera orientación se genera con IA a partir de tus respuestas.
+      No es una auditoría completa solo un primer análisis.
+      Evita incluir datos de clientes u otra información sensible.
+    </p>
+  </main>
+
+  <footer>
+    <a href="aviso_legal.html">Aviso legal</a>
+    <a href="politica_privacidad.html">Política de privacidad</a>
+  </footer>
+
+  <!-- Tally ajusta la altura para evitar el scroll interno. -->
+  <script src="https://tally.so/widgets/embed.js" async></script>
+</body>
+</html>
