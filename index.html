@@ -54,10 +54,10 @@
       </a>
 
       <!-- Botón Escáner de Fugas -->
-      <button id="nav-scan-button"
+      <a href="analista.html" id="nav-scan-button"
               class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
         Iniciar Análisis
-      </button>
+      </a>
     </div>
   </nav>
 </header>
@@ -85,9 +85,9 @@
             <!-- CTAs Principales -->
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <!-- CAMBIADO A <button> -->
-                <button class="open-modal-btn inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5">
+                <a href="analista.html" class="inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5">
                     Iniciar Análisis de Fugas
-                </button>
+                </a>
                 <a href="#roi-calculator" id="cta-roi" class="inline-block bg-white text-gray-800 font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-gray-100 transition duration-300 border border-gray-300 transform hover:-translate-y-0.5">
                     Calcular mi ROI
                 </a>
@@ -118,7 +118,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">1. Descubre tus Fugas</h3>
-                    <p class="text-gray-600">Usa nuestro <strong>Análisis de Fugas gratuito</strong> para identificar exactamente dónde pierdes <strong>tiempo y dinero</strong> en tus procesos actuales.</p>
+                    <p class="text-gray-600">Cuéntanos qué proceso te está frenando. El <strong>Analista de Fugas gratuito</strong> te enviará una primera orientación sobre qué podrías mejorar o automatizar.</p>
                 </div>
 
                 <!-- Paso 2: Simulación -->
@@ -340,7 +340,7 @@
                         <div id="annual-hours" class="text-4xl font-extrabold text-white">2,080 h</div>
 
                          <p class="text-blue-100 mt-8 text-xs italic">
-                            *Esta es una estimación. Usa el <button id="disclaimer-scanner-link" class="underline hover:text-white">Escáner de Fugas</button> para un diagnóstico preciso de tus procesos.*
+                            *Esta estimación depende de los valores que introduces y no garantiza un ahorro real. Usa el <a href="analista.html" class="underline hover:text-white">Analista de Fugas</a> para recibir una primera orientación sobre tu proceso.*
                          </p>
                     </div>
                 </div>
@@ -385,26 +385,6 @@
 
 	
 </footer>
-    <!-- HTML del Modal-Embed (Tally - Escáner) -->
-    <div id="tallyModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm"> <!-- z-index 60, > header's z-40 -->
-        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full h-[90vh] overflow-hidden transform transition-all">
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 class="text-lg font-bold text-gray-900">Inicia tu Diagnóstico</h3>
-                <button id="closeScannerModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
-            </div>
-            
-            <div class="w-full h-[calc(90vh-65px)]"> <!-- Ajuste de altura para que quepa el header del modal -->
-                <iframe 
-                    src="https://tally.so/r/Y5GY1v?transparentBackground=1&hideTitle=1"
-                    class="w-full h-full border-0"
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Escáner de Fugas B2B">
-                </iframe>
-            </div>
-        </div>
-    </div>
 
     <!-- AÑADIDO: HTML del Modal-Embed (Tally - Contacto) -->
     <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[60] hidden backdrop-blur-sm">
@@ -431,7 +411,7 @@
     document.addEventListener('DOMContentLoaded', function () {
 
         // --- LÓGICA DE TYPEIT ---
-        if (document.getElementById('typeit-hero')) {
+        if (document.getElementById('typeit-hero') && typeof TypeIt !== 'undefined') {
             new TypeIt('#typeit-hero', {
                 strings: [
                     'Responde a clientes sin abrir tu email.',
@@ -461,7 +441,6 @@
         const costValue = document.getElementById('cost-value');
         const annualSavingsEl = document.getElementById('annual-savings');
         const annualHoursEl = document.getElementById('annual-hours');
-        const disclaimerScannerLink = document.getElementById('disclaimer-scanner-link');
 
         function formatCurrency(num) { /* ... */ return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(num); }
         function formatHours(num) { /* ... */ return new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 }).format(num) + ' h'; }
@@ -489,28 +468,6 @@
         }
 
         // --- LÓGICA DE MODALES (CORREGIDA) ---
-
-        // Modal 1: Tally (Escáner)
-        const tallyModal = document.getElementById('tallyModal');
-        const openTallyBtn_Hero = document.querySelector('button.open-modal-btn'); // Botón del Hero por clase
-        const openTallyBtn_Footer = document.getElementById('footerOpenScannerBtn'); // Botón del Footer
-        const openTallyBtn_Header = document.getElementById('nav-scan-button'); // Botón del Header
-        const closeTallyBtn = document.getElementById('closeScannerModalBtn'); // ID Único
-
-        if (tallyModal && closeTallyBtn) {
-            const openTallyButtons = [openTallyBtn_Hero, openTallyBtn_Footer, openTallyBtn_Header, disclaimerScannerLink].filter(Boolean);
-            openTallyButtons.forEach(btn => {
-                if (btn) btn.addEventListener('click', () => tallyModal.classList.remove('hidden'));
-            });
-            closeTallyBtn.addEventListener('click', () => tallyModal.classList.add('hidden'));
-
-            // Cerrar al hacer clic fuera (opcional)
-            tallyModal.addEventListener('click', function(event) {
-                 if (event.target === tallyModal) {
-                     tallyModal.classList.add('hidden');
-                 }
-            });
-        }
 
         // Modal 2: Contacto (Tally)
         const contactModal = document.getElementById('contactModal');
@@ -584,7 +541,6 @@
 
 </body>
 </html>
-
 
 
 
